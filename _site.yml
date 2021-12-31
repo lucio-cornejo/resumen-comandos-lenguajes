@@ -3,7 +3,7 @@ author: "Autor: Lucio Cornejo"
 date: "Last update:  `r format(Sys.time(),'%d / %m / %Y')`"
 output_dir: "."
 navbar:
-  title: "Included languages: "
+  title: "Homepage"
   # type: inverse
   left:
     - text: " R"

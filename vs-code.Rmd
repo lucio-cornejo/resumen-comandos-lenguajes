@@ -24,7 +24,7 @@ https://stackoverflow.com/questions/31490989/how-do-i-get-a-cursor-on-every-line
 </div>
 
 <div class="level1">
-- **Makes less crashabe to use names in region foldings for VS code** \
+- **Makes less crashable to use names in region foldings for VS code** \
 https://marketplace.visualstudio.com/items?itemName=maptz.regionfolder
 <p style="margin-bottom: -10px;"> &nbsp; </p>
 </div>
@@ -64,10 +64,10 @@ In my pc: `alt+up` or `alt+down`
 <div class="level1">
 - **Region folding** \
 In my pc: \
-Fold current region: `ctrl+shift+f`   
-Unfold current region: `ctrl+shift+u`   
-Fold all regions: `alt+shift+f` 
-Unfold all regions: `alt+shift+u` 
+    + Fold current region: `ctrl+shift+f`   
+    + Unfold current region: `ctrl+shift+u`   
+    + Fold all regions: `alt+shift+f` 
+    + Unfold all regions: `alt+shift+u` 
 <p style="margin-bottom: -10px;"> &nbsp; </p>
 </div>
 

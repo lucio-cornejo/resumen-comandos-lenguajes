@@ -758,6 +758,56 @@ to the limitations of the MathJax library and how it displays LaTeX equations as
 <p style="margin-bottom: -10px;">&nbsp;</p>
 </div>
 
+<div class='level2'>
+- **Custom icon for html lists** \
+```css
+ul { list-style-image: url('icon_path.png'); }
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level3'>
+- **Logical and operator use** \
+Example:
+```scss
+ul.tocify-header.list-group {
+	li { 
+		border-top: 1px solid black; 
+		height: $li-desdendants-height vh;
+    	line-height: $li-desdendants-height*0.575vh;
+	}
+	&:first-child { margin-top: 15px; }
+```
+The `&` symbol sets the creation of its CSS conversion (assuming $li-desdendants-height = 10) like so:
+```css
+ul.tocify-header.list-group li {
+    border-top: 1px solid black; 
+    height: 10vh;
+    line-height: 5.75vh;
+}
+
+ul.tocify-header.list-group:first-child { margin-top: 15px; }
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Add an image on top of R Markdon's table of contents** \
+Example:
+```css
+#TOC::before {
+    content: "";
+    display: block;
+    height: 150px;
+    background-image: url("path_of_image.png"); 
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
 <!--#endregion-->
 
 <!--#region javascript items -->
@@ -940,6 +990,28 @@ if( !( IP_exceptions.includes(data['ip']) )) {
 - **Get first n elements of an array** \
 ```js
 let slicedArray = old_array.slice(0,n)
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **append() function** \
+[Description](https://www.javascripttutorial.net/javascript-dom/javascript-append/): 
+_Use the parentNode.append() method to append a set of Node objects or DOMString objects after the last child node of the parentNode._ \
+Example:
+```js
+let title = document.querySelector('h2');
+let langs = ['html','css','javascript'];
+
+let items = langs.map( lang => {
+    let li = document.createElement('li');
+    li.innerHTML = lang;
+    return li;
+});
+
+title.append(...items);
+
+title.append('texto')
 ```
 <p style="margin-bottom: -10px;">&nbsp;</p>
 </div>

@@ -13,13 +13,13 @@
 
 <title>web-development.knit</title>
 
-<script src="site_libs/header-attrs-2.11.4/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="web-development_files/header-attrs-2.11.4/header-attrs.js"></script>
+<script src="web-development_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="web-development_files/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="web-development_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="web-development_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="web-development_files/bootstrap-3.3.5/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -29,11 +29,11 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
-<script src="site_libs/panelset-0.2.6/panelset.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="web-development_files/navigation-1.1/tabsets.js"></script>
+<link href="web-development_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+<script src="web-development_files/panelset-0.2.6/panelset.js"></script>
+<link href="web-development_files/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="web-development_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" href="favicon.ico"/>
 
 <style type="text/css">
@@ -326,7 +326,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Included languages: </a>
+      <a class="navbar-brand" href="index.html">Homepage</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -1204,6 +1204,58 @@ This option can be very useful for long math equations displayed on a HTML docum
  
 </p>
 </div>
+<div class="level2">
+<ul>
+<li><strong>Custom icon for html lists</strong><br />
+</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>ul { <span class="kw">list-style-image</span>: <span class="fu">url(</span><span class="st">&#39;icon_path.png&#39;</span><span class="fu">)</span><span class="op">;</span> }</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level3">
+<ul>
+<li><strong>Logical and operator use</strong><br />
+Example:</li>
+</ul>
+<pre class="scss"><code>ul.tocify-header.list-group {
+    li { 
+        border-top: 1px solid black; 
+        height: $li-desdendants-height vh;
+        line-height: $li-desdendants-height*0.575vh;
+    }
+    &amp;:first-child { margin-top: 15px; }</code></pre>
+<p>The <code>&amp;</code> symbol sets the creation of its CSS conversion (assuming $li-desdendants-height = 10) like so:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>ul<span class="fu">.tocify-header.list-group</span> li {</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-top</span>: <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">black</span><span class="op">;</span> </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">height</span>: <span class="dv">10</span><span class="dt">vh</span><span class="op">;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">line-height</span>: <span class="dv">5.75</span><span class="dt">vh</span><span class="op">;</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>ul<span class="fu">.tocify-header.list-group</span><span class="in">:first-child</span> { <span class="kw">margin-top</span>: <span class="dv">15</span><span class="dt">px</span><span class="op">;</span> }</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Add an image on top of R Markdon’s table of contents</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb37"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#TOC</span><span class="in">::before</span> {</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">content</span>: <span class="st">&quot;&quot;</span><span class="op">;</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">height</span>: <span class="dv">150</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background-image</span>: <span class="fu">url(</span><span class="st">&quot;path_of_image.png&quot;</span><span class="fu">)</span><span class="op">;</span> </span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background-size</span>: <span class="dv">contain</span><span class="op">;</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background-position</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background-repeat</span>: <span class="dv">no-repeat</span><span class="op">;</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
 <!--#endregion-->
 <!--#region javascript items -->
 </div>
@@ -1214,34 +1266,34 @@ This option can be very useful for long math equations displayed on a HTML docum
 <li><strong>Automatic scrolling</strong><br />
 Example:</li>
 </ul>
-<div class="sourceCode" id="cb34"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Choose some div (with overflow) to scroll</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> scrollable <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Define the standard sleep() function</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sleep</span>(miliseconds) {</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="kw">new</span> <span class="bu">Promise</span>(resolve <span class="kw">=&gt;</span> <span class="pp">setTimeout</span>(resolve<span class="op">,</span> miliseconds))<span class="op">;</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> scrolling_time_in_miliseconds <span class="op">=</span> <span class="dv">2000</span><span class="op">;</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> scrolling_transition_animation_precision <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">initiateScrolling</span>(){</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Incrementally scroll little by little many times in order to simulate a continuous transition</span></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span>scrolling_transition_animation_precision<span class="op">;</span> i<span class="op">++</span>){</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> <span class="fu">sleep</span>(scrolling_time_in_miliseconds<span class="op">/</span>scrolling_transition_animation_precision)<span class="op">;</span></span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>        scrollable<span class="op">.</span><span class="fu">scrollBy</span>(scrollable<span class="op">.</span><span class="at">scrollWidth</span><span class="op">/</span>scrolling_transition_animation_precision<span class="op">,</span><span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Wait one second and reset the scroll back (smoothly, continuously) to its starting position</span></span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> <span class="fu">sleep</span>(<span class="dv">1000</span>)<span class="op">;</span></span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    scrollable<span class="op">.</span><span class="fu">scrollBy</span>({</span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">left</span><span class="op">:</span> <span class="op">-</span>scrollable<span class="op">.</span><span class="at">scrollWidth</span><span class="op">,</span></span>
-<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>        <span class="dt">behavior</span><span class="op">:</span> <span class="st">&#39;smooth&#39;</span> </span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a><span class="co">// Perform the automatic scrolling</span></span>
-<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a><span class="fu">initiateScrolling</span>()<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Choose some div (with overflow) to scroll</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> scrollable <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Define the standard sleep() function</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sleep</span>(miliseconds) {</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="kw">new</span> <span class="bu">Promise</span>(resolve <span class="kw">=&gt;</span> <span class="pp">setTimeout</span>(resolve<span class="op">,</span> miliseconds))<span class="op">;</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> scrolling_time_in_miliseconds <span class="op">=</span> <span class="dv">2000</span><span class="op">;</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> scrolling_transition_animation_precision <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">initiateScrolling</span>(){</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Incrementally scroll little by little many times in order to simulate a continuous transition</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span>scrolling_transition_animation_precision<span class="op">;</span> i<span class="op">++</span>){</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> <span class="fu">sleep</span>(scrolling_time_in_miliseconds<span class="op">/</span>scrolling_transition_animation_precision)<span class="op">;</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>        scrollable<span class="op">.</span><span class="fu">scrollBy</span>(scrollable<span class="op">.</span><span class="at">scrollWidth</span><span class="op">/</span>scrolling_transition_animation_precision<span class="op">,</span><span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Wait one second and reset the scroll back (smoothly, continuously) to its starting position</span></span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> <span class="fu">sleep</span>(<span class="dv">1000</span>)<span class="op">;</span></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>    scrollable<span class="op">.</span><span class="fu">scrollBy</span>({</span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">left</span><span class="op">:</span> <span class="op">-</span>scrollable<span class="op">.</span><span class="at">scrollWidth</span><span class="op">,</span></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>        <span class="dt">behavior</span><span class="op">:</span> <span class="st">&#39;smooth&#39;</span> </span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a><span class="co">// Perform the automatic scrolling</span></span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a><span class="fu">initiateScrolling</span>()<span class="op">;</span></span></code></pre></div>
 For more information, visit <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollBy" class="uri">https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollBy</a> .
 <p style="margin-bottom: -10px;">
  
@@ -1252,17 +1304,17 @@ For more information, visit <a href="https://developer.mozilla.org/en-US/docs/We
 <li><strong>Trigger action on certain button(s) after clicking some button</strong><br />
 Example:</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;button&quot;</span> <span class="er">value</span><span class="ot">=</span><span class="st">&quot;whatever&quot;</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;activar&quot;</span> <span class="er">onclick</span><span class="ot">=</span><span class="st">&quot;sth()&quot;</span><span class="kw">&gt;&lt;/input&gt;</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;button&quot;</span> <span class="er">value</span><span class="ot">=</span><span class="st">&quot;activation&quot;</span> <span class="er">onclick</span><span class="ot">=</span><span class="st">&quot;gooo()&quot;</span><span class="kw">&gt;&lt;/input&gt;</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;script&gt;</span>   </span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">gooo</span>(){</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">$</span>(<span class="st">&#39;.whatever&#39;</span>)<span class="op">.</span><span class="fu">trigger</span>(<span class="st">&#39;click&#39;</span>)<span class="op">;</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sth</span>() {</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// content ...</span></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/script&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;button&quot;</span> <span class="er">value</span><span class="ot">=</span><span class="st">&quot;whatever&quot;</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;activar&quot;</span> <span class="er">onclick</span><span class="ot">=</span><span class="st">&quot;sth()&quot;</span><span class="kw">&gt;&lt;/input&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">type</span><span class="ot">=</span><span class="st">&quot;button&quot;</span> <span class="er">value</span><span class="ot">=</span><span class="st">&quot;activation&quot;</span> <span class="er">onclick</span><span class="ot">=</span><span class="st">&quot;gooo()&quot;</span><span class="kw">&gt;&lt;/input&gt;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;script&gt;</span>   </span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">gooo</span>(){</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">$</span>(<span class="st">&#39;.whatever&#39;</span>)<span class="op">.</span><span class="fu">trigger</span>(<span class="st">&#39;click&#39;</span>)<span class="op">;</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sth</span>() {</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// content ...</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/script&gt;</span></span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -1272,8 +1324,8 @@ Example:</li>
 <li><strong>Get characters of a string</strong><br />
 Example:</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> palabra <span class="op">=</span> <span class="st">&quot;hola&quot;</span><span class="op">;</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">alert</span>(palabra<span class="op">.</span><span class="fu">charAt</span>(<span class="dv">0</span>))<span class="op">;</span> <span class="co">// Displays the word &quot;h&quot;.</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> palabra <span class="op">=</span> <span class="st">&quot;hola&quot;</span><span class="op">;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">alert</span>(palabra<span class="op">.</span><span class="fu">charAt</span>(<span class="dv">0</span>))<span class="op">;</span> <span class="co">// Displays the word &quot;h&quot;.</span></span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -1284,20 +1336,20 @@ Example:</li>
 This method involves turning a string into array of its characters, removing some elements of such array and then join the characters left into a new string.<br />
 Example:</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> t <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co">// t is a div which contains some text</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co">//  Convert string into array of characters</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> texto <span class="op">=</span> t[<span class="st">&quot;textContent&quot;</span>]<span class="op">.</span><span class="fu">split</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span> </span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Remove the first two characters of the string</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>texto<span class="op">.</span><span class="fu">splice</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">1</span>)<span class="op">;</span> texto<span class="op">.</span><span class="fu">splice</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Remove the last two characters of the string</span></span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>texto<span class="op">.</span><span class="fu">splice</span>(texto<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span> <span class="op">,</span><span class="dv">1</span>)<span class="op">;</span> texto<span class="op">.</span><span class="fu">splice</span>(texto<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">,</span><span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Set the initial text to its new value after joining the characters into a new string</span></span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>t[<span class="st">&quot;textContent&quot;</span>] <span class="op">=</span> texto<span class="op">.</span><span class="fu">join</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> t <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co">// t is a div which contains some text</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co">//  Convert string into array of characters</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> texto <span class="op">=</span> t[<span class="st">&quot;textContent&quot;</span>]<span class="op">.</span><span class="fu">split</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span> </span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Remove the first two characters of the string</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>texto<span class="op">.</span><span class="fu">splice</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">1</span>)<span class="op">;</span> texto<span class="op">.</span><span class="fu">splice</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Remove the last two characters of the string</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>texto<span class="op">.</span><span class="fu">splice</span>(texto<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span> <span class="op">,</span><span class="dv">1</span>)<span class="op">;</span> texto<span class="op">.</span><span class="fu">splice</span>(texto<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">,</span><span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Set the initial text to its new value after joining the characters into a new string</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>t[<span class="st">&quot;textContent&quot;</span>] <span class="op">=</span> texto<span class="op">.</span><span class="fu">join</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -1308,18 +1360,18 @@ Example:</li>
 When you use a function like “click this and something will sound”, as it’s common with virtual pianos, there may be a problem where, after click the <em>sound button</em>, you have to wait till the sound stops in order for the next button click to activate the same sound.<br />
 The problem can be fixed using <code>currentTime = 0;</code> right before <code>play();</code>. Example:</li>
 </ul>
-<div class="sourceCode" id="cb38"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;audio</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;nota&quot;</span> <span class="er">preload</span><span class="ot">=</span><span class="st">&quot;auto&quot;</span><span class="kw">&gt;&lt;source</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;musical_notes/C4.mp3&quot;</span><span class="kw">&gt;&lt;/source&gt;&lt;/audio&gt;</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;sonido&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p&gt;</span>Click me to play a sound<span class="kw">&lt;/p&gt;</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;script&gt;</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> audio<span class="op">;</span></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(sonido)<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span><span class="kw">function</span>() {</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    audio <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(nota)<span class="op">;</span></span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    audio<span class="op">.</span><span class="at">currentTime</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    audio<span class="op">.</span><span class="fu">play</span>()<span class="op">;</span></span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/script&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;audio</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;nota&quot;</span> <span class="er">preload</span><span class="ot">=</span><span class="st">&quot;auto&quot;</span><span class="kw">&gt;&lt;source</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;musical_notes/C4.mp3&quot;</span><span class="kw">&gt;&lt;/source&gt;&lt;/audio&gt;</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;sonido&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p&gt;</span>Click me to play a sound<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;script&gt;</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> audio<span class="op">;</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(sonido)<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span><span class="kw">function</span>() {</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    audio <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(nota)<span class="op">;</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    audio<span class="op">.</span><span class="at">currentTime</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    audio<span class="op">.</span><span class="fu">play</span>()<span class="op">;</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/script&gt;</span></span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -1330,7 +1382,7 @@ The problem can be fixed using <code>currentTime = 0;</code> right before <code>
 Most efficient way:<br />
 </li>
 </ul>
-<div class="sourceCode" id="cb39"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> converted_array <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="at">slice</span><span class="op">.</span><span class="fu">call</span>( some_html_collection )<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> converted_array <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="at">slice</span><span class="op">.</span><span class="fu">call</span>( some_html_collection )<span class="op">;</span></span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -1340,20 +1392,20 @@ Most efficient way:<br />
 <li><strong>Set a time delay</strong><br />
 Example:</li>
 </ul>
-<div class="sourceCode" id="cb40"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;button</span> <span class="er">onclick</span><span class="ot">=</span><span class="st">&quot;doIt()&quot;</span><span class="kw">&gt;</span>Do it<span class="kw">&lt;/button&gt;</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;script&gt;</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">function</span> <span class="fu">sleep</span>(ms) {</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Promise</span>(resolve <span class="kw">=&gt;</span> <span class="pp">setTimeout</span>(resolve<span class="op">,</span> ms))<span class="op">;</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">async</span> <span class="kw">function</span> <span class="fu">doIt</span>(){</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;</span><span class="dv">18</span><span class="op">;</span>i<span class="op">++</span>){</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>                <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(i<span class="op">.</span><span class="fu">toString</span>())</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>                <span class="cf">await</span> <span class="fu">sleep</span>(<span class="dv">100</span>)<span class="op">;</span></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/script&gt;</span></span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;button</span> <span class="er">onclick</span><span class="ot">=</span><span class="st">&quot;doIt()&quot;</span><span class="kw">&gt;</span>Do it<span class="kw">&lt;/button&gt;</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;script&gt;</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">function</span> <span class="fu">sleep</span>(ms) {</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Promise</span>(resolve <span class="kw">=&gt;</span> <span class="pp">setTimeout</span>(resolve<span class="op">,</span> ms))<span class="op">;</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">async</span> <span class="kw">function</span> <span class="fu">doIt</span>(){</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;</span><span class="dv">18</span><span class="op">;</span>i<span class="op">++</span>){</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>                <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(i<span class="op">.</span><span class="fu">toString</span>())</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>                <span class="cf">await</span> <span class="fu">sleep</span>(<span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/script&gt;</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -1363,22 +1415,22 @@ Example:</li>
 <li><strong>Get IP of webpage visitor</strong><br />
 Example using JQuery:</li>
 </ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">// IPs of the visitors to this website for which</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co">// we grant permission to see the content of the site.</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> IP_exceptions <span class="op">=</span> [<span class="st">&#39;161.123.234.45&#39;</span><span class="op">,</span><span class="st">&#39;161.133.243.54&#39;</span>]<span class="op">;</span> </span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> pagina <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;html&#39;</span>)<span class="op">;</span></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>$<span class="op">.</span><span class="fu">getJSON</span>(<span class="st">&quot;https://jsonip.com/?callback=?&quot;</span><span class="op">,</span> <span class="kw">function</span> (data) {</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>( <span class="op">!</span>( IP_exceptions<span class="op">.</span><span class="fu">includes</span>(data[<span class="st">&#39;ip&#39;</span>]) )) { </span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// IP of user does not belong to someone granted permission to see site,</span></span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// so we delete the content of the website</span></span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    pagina<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    pagina<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">visibility</span> <span class="op">=</span> <span class="st">&#39;visible&#39;</span><span class="op">;</span> </span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// this webpage had &#39;hidden&#39; visibility when loaded</span></span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">// IPs of the visitors to this website for which</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co">// we grant permission to see the content of the site.</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> IP_exceptions <span class="op">=</span> [<span class="st">&#39;161.123.234.45&#39;</span><span class="op">,</span><span class="st">&#39;161.133.243.54&#39;</span>]<span class="op">;</span> </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> pagina <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;html&#39;</span>)<span class="op">;</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>$<span class="op">.</span><span class="fu">getJSON</span>(<span class="st">&quot;https://jsonip.com/?callback=?&quot;</span><span class="op">,</span> <span class="kw">function</span> (data) {</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>( <span class="op">!</span>( IP_exceptions<span class="op">.</span><span class="fu">includes</span>(data[<span class="st">&#39;ip&#39;</span>]) )) { </span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// IP of user does not belong to someone granted permission to see site,</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// so we delete the content of the website</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    pagina<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    pagina<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">visibility</span> <span class="op">=</span> <span class="st">&#39;visible&#39;</span><span class="op">;</span> </span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// this webpage had &#39;hidden&#39; visibility when loaded</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -1388,7 +1440,29 @@ Example using JQuery:</li>
 <li><strong>Get first n elements of an array</strong><br />
 </li>
 </ul>
-<div class="sourceCode" id="cb42"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> slicedArray <span class="op">=</span> old_array<span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> slicedArray <span class="op">=</span> old_array<span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span>n)</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>append() function</strong><br />
+<a href="https://www.javascripttutorial.net/javascript-dom/javascript-append/">Description</a>: <em>Use the parentNode.append() method to append a set of Node objects or DOMString objects after the last child node of the parentNode.</em><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> title <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;h2&#39;</span>)<span class="op">;</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> langs <span class="op">=</span> [<span class="st">&#39;html&#39;</span><span class="op">,</span><span class="st">&#39;css&#39;</span><span class="op">,</span><span class="st">&#39;javascript&#39;</span>]<span class="op">;</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> items <span class="op">=</span> langs<span class="op">.</span><span class="fu">map</span>( lang <span class="kw">=&gt;</span> {</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> li <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;li&#39;</span>)<span class="op">;</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    li<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> lang<span class="op">;</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> li<span class="op">;</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>title<span class="op">.</span><span class="fu">append</span>(<span class="op">...</span>items)<span class="op">;</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>title<span class="op">.</span><span class="fu">append</span>(<span class="st">&#39;texto&#39;</span>)</span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
