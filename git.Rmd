@@ -1,0 +1,190 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+xaringanExtra::use_panelset()
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<div class="level-buttons" style="display: inline-flex;">
+<button type="button" onclick="toggle_visibility(1)">Level 1</button>
+<button type="button" onclick="toggle_visibility(2)">Level 2</button>
+<button type="button" onclick="toggle_visibility(3)">Level 3</button>
+<button type="button" onclick="toggle_visibility(4)">Level 4</button>
+<button type="button" onclick="toggle_visibility(5)">Level 5</button>
+</div>
+
+<!--#region items -->
+
+<div class='level3'>
+- **Useful summary from Harvard University** \
+<https://cs50.harvard.edu/web/2020/notes/1/>
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Clone a repository** \
+Copy the contents of a git repository into your computer. \
+Command: \
+`git clone url-of-repository` \
+If the repository is private, it's better to use the following command: \
+`git clone https://username@github.com/username/repo_name`
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Command commit** \
+It saves the current state of all the files, folders and assets in
+the repository, that have been `added`. \
+Structure: `git commit -m "message"` \
+The 'message' section can be useful to keep track of which changes,
+or a summary of them, were made to the project.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Command add** \
+It tells Git to add a file as one to track the next time we use the `commit` command. \
+Use `git add .` to add all the changes in the repository that you've made.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Command status** \
+Useful if you need to compare the local version of your repository, with the one on GitHub.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Command push** \
+It pushes to GitHub the local changes to the repository so that the online version of the repository
+has the same contents as the local version on your computer.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **The git trifecta** \
+`git add` selects changes. \
+`git commit` records changes LOCALLY. \
+`git push` shares changes.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Merging add and commit** \
+You can add and commit a file via one command via: \
+`git commit -am "message"`
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Command pull** \
+It pulls the most recent changes down from a repository in GitHub, 
+into the local version of such repository.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Command log** \
+It shows the changes made in each commit, by who and when.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Go back to last commit** \
+Example: \
+`git reset --hard` \
+**Undo** local file changes and **keep**  your last commmit: \
+<https://stackoverflow.com/questions/4965639/rollback-to-last-git-commit>
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Command branch** \
+It shows you which branch you are currently on (with \*) and which branches exist
+in my repository. 
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Create a branch** \
+`git checkout -b name_of_branch`. \
+Now, the changes made will not affect the master branch, as long as we stay on this branch.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Change branch** \
+Return to the master branch: \
+`git checkout master` \
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Combine changes of branches** \
+Say you have two branches: master and style. \
+If you are currently in the master branch, then execute: \
+`git merge branch_name` \
+You may have to deal with merge conflicts, but, if you avoid making
+distinct branch modifications to the same line of code, the merge may work out.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **GitHub pages** \
+You can create your own website using GitHub. \
+A simple example is to create a repository named 
+`your_username.github.io` and add a file named 
+`index.html` of the type:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+    My site!
+    </title>
+</head>
+<body>
+    <h1>This is my  GitHub Pages website!</h1>
+</body>
+</html>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Fork** \
+It's the GitHub functionality that allows you to copy the contents of some repository
+so that you can push and pull from its new copy as if itw as your own. \
+It's pretty useful for open-source software.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Replace master branch by another branch** \
+Explanation: <https://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch>.  
+Example:
+```text
+git checkout branch_two_name
+git merge -s ours master
+git checkout master
+git merge branch_two_name
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Delete a branch** \
+Explanation: <https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely>.  
+Example:
+```text
+git branch -d branch_name
+# -d only works for deleting the branch if it has already been fully merged in its upstream branch.
+git branch -D branch_name
+# -D works for deleting the branch irrespective of its merged status.
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<!--#endregion-->

@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>latex.knit</title>
+
+<script src="site_libs/header-attrs-2.11.4/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+<script src="site_libs/panelset-0.2.6/panelset.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" href="favicon.ico"/>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="my-style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Included languages: </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="r.html">
+    <span class="fab fa-r-project"></span>
+     
+     R
+  </a>
+</li>
+<li>
+  <a href="python.html">
+    <span class="fab fa-python"></span>
+     
+     Python
+  </a>
+</li>
+<li>
+  <a href="web-development.html">
+    <span class="fa fa-html5"></span>
+     
+     Web development
+  </a>
+</li>
+<li>
+  <a href="git.html">
+    <span class="fa fa-github"></span>
+     
+     Git
+  </a>
+</li>
+<li>
+  <a href="latex.html">
+    <span class="fa fa-file-pdf"></span>
+     
+     LaTeX
+  </a>
+</li>
+<li>
+  <a href="vs-code.html">
+    <span class="fab fa-windows"></span>
+     
+    VS Code
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<script src="https://kit.fontawesome.com/7ff19d7086.js" crossorigin="anonymous"></script>
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div class="level-buttons" style="display: inline-flex;">
+<button type="button" onclick="toggle_visibility(1)">
+Level 1
+</button>
+<button type="button" onclick="toggle_visibility(2)">
+Level 2
+</button>
+<button type="button" onclick="toggle_visibility(3)">
+Level 3
+</button>
+<button type="button" onclick="toggle_visibility(4)">
+Level 4
+</button>
+<button type="button" onclick="toggle_visibility(5)">
+Level 5
+</button>
+</div>
+<!--#region items -->
+<div class="level3">
+<ul>
+<li><strong>Cheat sheet</strong><br />
+This <a href="https://courses.edx.org/assets/courseware/v1/29eb39fb3d98de8923beb13401ac62ba/asset-v1:IITBombayX+LaTeX101x+1T2021+type@asset+block/CheatSheet_LaTeX_2019_11_13_Firuza.pdf">summary</a> of LateX commands is from an online LateX course.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>List of LateX symbols</strong><br />
+<a href="http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf">The Comprehensive LATEX Symbol List</a>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>LateX fonts</strong><br />
+<a href="https://www.tug.org/FontCatalogue/">The LateX Font Catalogue</a>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Customize geometry of Rmarkdown pdf output</strong><br />
+You can set the geometry in the YAML section.<br />
+Examples:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geometry</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;left=5em,top=2.5em,right=5em,bottom=6em&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geometry</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;landscape&quot;</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Math equations</strong><br />
+</li>
+</ul>
+<pre class="text"><code>\( ... \) for inline math expressions.
+\[ ... \] for display-style expressions.</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Include LateX packages in rmd file</strong><br />
+In the YAML section of the Rmarkdown document include some text as in the following example:<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> usepackage{unicode-math}</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> usepackage{ragged2e}</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Pdf output</strong><br />
+In order to avoid certain problems with LateX when the ouput file is pdf, I suggest you add the following to the YAML section of the rmd document:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf_document</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">latex_engine</span><span class="kw">:</span><span class="at"> xelatex</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level3">
+<ul>
+<li><strong>Efficient way to find the LateX code for symbols</strong><br />
+This <a href="http://detexify.kirelabs.org/classify.html">site</a> allows you to draw a symbol and it will output various possibilities for which LateX code to use in order to use that symbol (or an approximation of it in case your drawing is kinda bad).
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Spacing</strong><br />
+The ragged2e package does not seem to work when the output is html, but it does when the output is a pdf file. In that case, you may use functions such as</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\kern</span>2em</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\vspace</span>{1ex}</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\hspace</span>{10ex}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Inline display style</strong><br />
+For prettier inline math equations can be made possible for symbols like <code>\int, \lim, \prod, ...</code>, via <code>\displaystyle{ }</code>.<br />
+Comparison:<br />
+<code>\lim_{h\to\, 0}</code> <span class="math inline">\(\quad\Rightarrow\quad \lim_{h\to\, 0} \quad .\)</span><br />
+<code>\displaytyle{\lim_{h\to\, 0}}</code> <span class="math inline">\(\quad\Rightarrow\quad \displaystyle{\lim_{h\to\, 0}} \quad.\)</span><br />
+
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Cartesian product symbol</strong><br />
+<span class="math inline">\(\times\)</span> as <code>\times</code>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Function composition symbol</strong><br />
+<span class="math inline">\(\circ\)</span> as <code>\circ</code>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Reverse symbol of <em>belongs in</em></strong><br />
+<span class="math inline">\(\in\)</span> as <code>\in</code> and <span class="math inline">\(\ni\)</span> as <code>\ni</code>.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Inner product symbol</strong><br />
+<code>\langle u,v \rangle</code> <span class="math inline">\(\quad\Rightarrow\quad \langle u,v \rangle \, .\)</span>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Basic structure of a book in LateX</strong><br />
+</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>documentclass{book}</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\title</span>{LaTeX Document}</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\author</span>{Wikipedia <span class="fu">\\</span> Collated by Firuza}</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\date</span>{<span class="fu">\today</span>}</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\maketitle</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\tableofcontents</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\chapter</span>{Overview}</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\section</span>{Overall Description}</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="kw">\section</span>{Introduction}</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="kw">\paragraph</span>{}</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>Dhansak is a popular Indian dish, originating among the Parsi Zoroastrian community.</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="kw">\subsection</span>{Purpose}</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Avoid entry in table of contents</strong><br />
+Possible using * as in the following examples:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\chapter*</span>{Introduction}</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\subsection*</span>{Time-table}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Proper quotes use</strong><br />
+` for the opening of quotes, and ' for closing them.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Set margin of the pages</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Write between documentclass{article} and begin{document}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[a4paper,margin=2in]{<span class="ex">geometry</span>} <span class="co">% 2 inches in all 4 sides of the page</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[a5paper,top=1in,left=2in,right=0.75in,bottom=1in]{<span class="ex">geometry</span>}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">% Write between documentclass{book} and begin{document}</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[inner= 1.5in,outer=0.5in]{<span class="ex">geometry</span>}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Remove page numbering</strong><br />
+</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Insert in the document environment</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\pagenumbering</span>{gobble}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Customize the page numbering</strong><br />
+For a book document class, one can set when to start counting the pages via <code>\setcounter{page}{1}</code>.<br />
+I prefer the following customization for the beggining of a book:</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\maketitle</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\pagenumbering</span>{gobble}</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\tableofcontents</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\pagenumbering</span>{roman}</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\chapter</span>{Introduction}</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\setcounter</span>{page}{1}</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\pagenumbering</span>{arabic}</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\section</span>{blank}</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">% ...</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Rotate page content by 90 degrees</strong><br />
+</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">lscape</span>}</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">landscape</span>}</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    Content to be presented in the rotated page.</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">landscape</span>}</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Make pdf easier to read online</strong><br />
+If the pdf document will most likely be read in a pc, it becomes easier to do so if you include <code>\usepackage[landscape]{geometry}</code>. That way, everything inside the document environment will be affected by the landscape environment.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Page break vs new page</strong><br />
+From stackexchange:<br />
+<code>\pagebreak</code> tries to make the page the same height as other pages if it’s possible (by stretching intervals between paragraphs etc) and <code>\newpage</code> just fills the page with empty space.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Insert footnote</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Inside the document environment</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    arbitrary text to be footnoted <span class="fu">\footnote</span>{content of this footnote}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><p><strong>Column formatting</strong><br />
+</p></li>
+<li><p>For just two columns, you can set <code>\documentclass[twocolumn]{...}</code>.</p></li>
+<li><p>For more than two columns, no need to alter the documnt class, but add instead <code>\usepackage{multicol}</code> and incude the text to be <em>columnized</em> in the proper environment:</p></li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">multicols</span>}{n} <span class="co">% n is the number of columns</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">% content</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">multicols</span>}</span></code></pre></div>
+<ul>
+<li><p>Change the distance between columns with <code>\setlength{\columnsep}{20pt}</code>, where its last argument defines such distance.</p></li>
+<li><p>Add a bar to separate the columns with <code>\setlength{\columnseprule}{1pt}</code>, where its last argument defines the thickness of the bar.</p></li>
+<li><p>Set where to start the next column with <code>\columnbreak</code> .</p>
+<p style="margin-bottom: -10px;">
+<p> </p>
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Changing font size</strong><br />
+To set the new font size for the rest of the document, type, for example, <code>\large</code>; but, if you only want to apply a font size to a specific part of the text, type, for example, <code>{\large content ...}</code> .
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Customizing text color</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">article</span>}</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[dvipsnames]{<span class="ex">xcolor</span>} </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">% Mix white with 60% of red</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\pagecolor</span>{red!60}    </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">% Mix blue with 10% of red</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\textcolor</span>{red!10!blue}{texto}</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Aligning text</strong><br />
+By default, LateX’s text is fully justified, but you can change it via:</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\centering</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>texto</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\flushleft</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>texto</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\flushright</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>texto</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">\justify</span>    <span class="co">% This one requires the package ragged2e</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>texto</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Spacing</strong><br />
+</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">% For the space between lines of text, the following commands set a new standard for the WHOLE document:</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\singlespacing</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\onehalfspacing</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\doublespacing</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">% You can also set a custom spacing using the setspace package:</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\spacing</span>{X}</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">spacing</span>}{X}</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">spacing</span>}</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">% Basic vertical spacing commands:</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\vspace</span>{Xpt}</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\smallskip</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="fu">\medskip</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\bigskip</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="fu">\vfill</span>    <span class="co">% Very useful for typing the &quot;cover&quot; of a document.</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co">% Basic horizontal spacing commands:</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="fu">\ </span>   <span class="co">% Adds a single space</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="fu">\,</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="fu">\hspace</span>{Xpt}</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="fu">\hfill</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Create lists</strong><br />
+</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Types of lists</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">itemize</span><span class="er"> | enumerate | description</span>}</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\item</span> ...</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\item</span> [...] ...    <span class="co">% Used only with description</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">itemize</span><span class="er"> | enumerate | description</span>}</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">% There is a limitation of 4 levels (list inside list) nesting.</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">% Change numbering style</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">enumerate</span>} <span class="kw">\begin</span>{<span class="ex">enumerate</span>}[...]</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">% Change bullet Style</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amssymb</span>}</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\renewcommand</span>{<span class="ex">\labelitem&lt;Level&gt;</span>}{<span class="ss">$&lt;Style&gt;$</span>}</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>Examples:</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\renewcommand</span>{<span class="ex">\labelitemi</span>}{<span class="ss">$ </span><span class="sc">\diamond</span><span class="ss"> $</span>}</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="fu">\renewcommand</span>{<span class="ex">\labelitemii</span>}{<span class="ss">$ </span><span class="sc">\cdot</span><span class="ss"> $</span>}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Create matrix</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Requires the package amsmath </span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ss">$</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">pmatrix</span>}<span class="ss">           </span><span class="co">% ( ) symbols for matrix</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    a_{11} &amp; a_{12} </span><span class="sc">\\</span><span class="ss">    </span><span class="co">% New row </span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    a_{21} &amp; a_{22}         </span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">pmatrix</span>}</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="sc">\kern</span><span class="ss">2em</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">bmatrix</span>}<span class="ss">           </span><span class="co">% [ ] symbols for matrix</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    a_{11} &amp; a_{12} </span><span class="sc">\\</span><span class="ss">     </span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    a_{21} &amp; a_{22}         </span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">bmatrix</span>}</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="ss">$</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">% No extra package required</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="ss">\[ </span><span class="sc">\left</span><span class="ss">(</span><span class="kw">\begin</span>{<span class="ex">array</span>}<span class="ss">{ccc}</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="ss">1 &amp; 2 </span><span class="sc">\\</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="ss">2 &amp; 4 </span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">array</span>}<span class="sc">\right</span><span class="ss">) \]</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Create equation</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">equation</span>}</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="sc">\cos</span><span class="ss">^2 x - </span><span class="sc">\sin</span><span class="ss">^2 x = </span><span class="sc">\cos</span><span class="ss">(2x)</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">equation</span>}</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">% It automatically becomes centered and the equation number is displayed.</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Align equations</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Requires the package amsmath </span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">align</span>}</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    x^2 - 2x &amp;= -1   </span><span class="sc">\\</span><span class="ss">               </span><span class="co">% New line </span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    x^2 -2x +1 &amp;= 0  </span><span class="sc">\nonumber\\</span><span class="ss">  </span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="co">% The &amp; symbol sets the following character in the same horizontal position</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    (x-1)^2 &amp;= 0     </span><span class="sc">\nonumber\\</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    x &amp;= 1               </span><span class="sc">\nonumber</span><span class="ss">   </span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="co">% \nonumbber means &quot;do not label this equation&quot;</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">align</span>}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Create a table</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tabular</span>}{clrp{4cm}}</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>No. <span class="op">&amp;</span> Item <span class="op">&amp;</span> Price <span class="op">&amp;</span> Qty <span class="fu">\\</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>1   <span class="op">&amp;</span> Mouse <span class="op">&amp;</span> 10 <span class="op">&amp;</span>  1    <span class="fu">\\</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">% &amp; separates columns</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">% \\ is for new row</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">% c: center; l: left; r: right</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">% p{Xcm} sets a length of X cm for such column.</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tabular</span>}</span></code></pre></div>
+<p>Add lines:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tabular</span>}{|c|l|l|r|}    <span class="co">% Each | is a vertical line</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span>    <span class="co">% horizontal line</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>No. <span class="op">&amp;</span> Item <span class="op">&amp;</span> Quantity <span class="op">&amp;</span> Price <span class="fu">\\</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>1 <span class="op">&amp;</span> Pen <span class="op">&amp;</span> 3 <span class="op">&amp;</span> 10 <span class="fu">\\</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\cline</span>{1-2} <span class="fu">\cline</span>{4-4}    </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">% Horizontal line between columns 1 and 2</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">% Horizontal line for column 4</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>2 <span class="op">&amp;</span> Pencil <span class="op">&amp;</span> <span class="op">&amp;</span> 5 <span class="fu">\\</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tabular</span>}</span></code></pre></div>
+<p>You can use the package <code>arydshln</code> to apply dashed lines instead, via:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\hdashline</span>[size of dash / space between dashes]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\cdashline</span> {i-j}[size of dash / space between dashes]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">% The vertical dashed line is used with, for example:</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">% \begin{tabular}{:c:l:l:r:}</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Merge table’s rows or columns</strong><br />
+Merge rows:</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Requires the package multirow and the command</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">% \multirow{Numbe_of_rows}{width}{content}</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">% Example:</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tabular</span>}{|c|l|l|r|}</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>No. <span class="op">&amp;</span> Item <span class="op">&amp;</span> Quantity <span class="op">&amp;</span> Price <span class="fu">\\</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>1 <span class="op">&amp;</span> Pen <span class="op">&amp;</span> <span class="fu">\multirow</span>{2}{*}{3} <span class="op">&amp;</span> 10 <span class="fu">\\</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co">% The * symbol is to keep the previously length of such column</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co">% Rows 2 and 3 got merged</span></span></code></pre></div>
+<p>Merge columns:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Does not require to add a package</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">% Example:</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tabular</span>}{|c|l|l|r|}</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\multicolumn</span>{4}{|c|}{Stationery Items} <span class="fu">\\</span> </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">% Four columns have been merged</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>No. <span class="op">&amp;</span> Item <span class="op">&amp;</span> Quantity <span class="op">&amp;</span> Price <span class="fu">\\</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Change the spacing for tables</strong><br />
+Insert the command <code>\renewcommand{\arraystretch}{value}</code> before the tabular environment. The default “value” is 1, but 1.5 works better, in my opinion.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Table that spans more than one page</strong><br />
+To address this problem, when using the tabular environment, use the package <code>longtable</code> and change the environment of the table to <code>longtable</code>, instead of tabular.<br />
+If you wish that the first <span class="math inline">\(n\)</span> rows of your table get repeated in every page that your table spans, insert <code>\endhead</code> right after the last row you wish to be repeated.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Table environment</strong><br />
+It allows us to add captions and change the position of the table:<br />
+</li>
+<li>Environment:</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">table</span>}[position]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    your tabular code</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\caption</span>{...}</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">table</span>}</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">% Position:</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">% t: Insert table at top of the page.</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">% b: Insert table at bottom of the page.</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">% h: Insert table approximately here.</span></span></code></pre></div>
+<ul>
+<li>You can create a “table of contents” analogue for the tables, via the command <code>\listoftables</code> .
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><p><strong>Include images</strong><br />
+It requires the <code>graphicx</code> package, which supports<br />
+jpg, png, eps and pdf files. The image must be in the same folder as the tex file.</p></li>
+<li><p>Scaling</p></li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\includegraphics</span>{<span class="ex">image.jpg</span>}</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\includegraphics</span>[height=4cm]{<span class="ex">image.pdf</span>}</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">\includegraphics</span>[width=4cm]{<span class="ex">image.png</span>}</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">% The following example is not recommended, due to changing the </span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">% proportions of the image.</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="bu">\includegraphics</span>[width=4cm, height=4cm]{<span class="ex">image.eps</span>}</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="bu">\includegraphics</span>[scale=0.5]{<span class="ex">image.png</span>}</span></code></pre></div>
+<ul>
+<li>Crop</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\includegraphics</span>[clip=true, trim=15mm 5mm 7mm 3mm]{<span class="ex">image.png</span>}</span></code></pre></div>
+<ul>
+<li>Rotate</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\includegraphics</span>[angle=60]{<span class="ex">image.png</span>}</span></code></pre></div>
+<ul>
+<li>Add an image border</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\fbox</span>{ <span class="bu">\includegraphics</span>... }</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co">% Adjust the border thickness with:</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\setlength</span>{<span class="fu">\fboxrule</span>}{2pt}</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">% Change the distance bewtween the image </span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">% and its border with:</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\setlength</span>{<span class="fu">\fboxsep</span>}{15pt}</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">% Both last commands only affect the</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">% \includegraphics{...} that appear after them.</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>The figure environment</strong><br />
+It allows us to position the figure and add a caption to it.<br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">figure</span>}[position]</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\includegraphics</span>[...]{<span class="ex">...</span>}</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\caption</span>{...}</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">figure</span>}</span></code></pre></div>
+<p>You can add a “table of contents” analogue for the figures with <code>\listoffigures</code> .</p>
+<ul>
+<li>Add sub-figures It requires the packages <code>caption</code> and <code>subcaption</code> .<br />
+Basic structure:</li>
+</ul>
+<div class="sourceCode" id="cb32"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">figure</span>}[&lt;position&gt;]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">\begin</span>{<span class="ex">subfigure</span>}{&lt;width&gt;}</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">\includegraphics</span>...</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\caption</span>{...}</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">\end</span>{<span class="ex">subfigure</span>}</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\caption</span>{...}</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">figure</span>}</span></code></pre></div>
+<p>Example:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">figure</span>}</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\centering</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">\begin</span>{<span class="ex">subfigure</span>}{0.3<span class="fu">\textwidth</span>}</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">% Notice the necessary &quot;0.3&quot; because we include 3 figures.</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">% For just two figures, &quot;0.4&quot; would have sufficed.</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\centering</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">\includegraphics</span>[width=<span class="fu">\textwidth</span>]{<span class="ex">image.png</span>}</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\caption</span>{Original Image}</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">\end</span>{<span class="ex">subfigure</span>}</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\hfill</span> <span class="co">% So that the sub figures aren&#39;t right next to each other.</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">\begin</span>{<span class="ex">subfigure</span>}{0.3<span class="fu">\textwidth</span>}</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\centering</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">\includegraphics</span>[width=<span class="fu">\textwidth</span>, angle=90]{<span class="ex">images/parrot.png</span>}</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\caption</span>{Rotated by 90 degrees}</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">\end</span>{<span class="ex">subfigure</span>} </span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\hfill</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">\begin</span>{<span class="ex">subfigure</span>}{0.3<span class="fu">\textwidth</span>}</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\centering</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">\includegraphics</span>[width=<span class="fu">\textwidth</span>, angle=90]{<span class="ex">images/parrot.png</span>}</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\caption</span>{Rotated by 90 degrees}</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">\end</span>{<span class="ex">subfigure</span>} </span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\caption</span>{Image of a Parrot}</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">figure</span>}</span></code></pre></div>
+If you leave blank lines in the figure environment, the subfigures may not be shown in the same line.<br />
+To remove the "(a)" automatic label of the subfigure caption, include <code>\captionsetup[subfigure]{labelformat=empty}</code> in the beggining of the document environment.
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Creating the cover</strong><br />
+It’s done in the <code>titlepage</code> environment.<br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">titlepage</span>}</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\centering</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\huge</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\textbf</span>{Car<span class="fu">\&#39;</span>atula}</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\vfill</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\Large</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\textbf</span>{Submited by } <span class="fu">\\</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\medskip</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    Lucio Cornejo</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\vfill</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    PUCP</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\vfill</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    August  4</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\vfill</span></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>    2021    </span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">titlepage</span>}</span></code></pre></div>
+LateX will automatically not number the page of "titlepage", and it will begin counting the pages from the next page instead.
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Include hyperlinks and hypertext</strong><br />
+It requires the packages <code>url</code> and <code>hyperref</code>.<br />
+Display a link with, for example, <code>\url{https://www.google.com/}</code> .<br />
+Create hypertext with <code>\href{https://www.overleaf.com}{Overleaf}</code>, where the second { } contains what will be displayed but takes you when clicked to the url denoted.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Cross referencing</strong><br />
+Label a section, subsection, table, figure or page number via <code>\label{KEY}</code>, and refer to them via the following:</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\ref</span>{<span class="ex">KEY</span>}     <span class="co">% Outputs the index number of such object labelled.</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\pageref</span>{<span class="ex">KEY</span>} <span class="co">% Outputs the page number of such object labelled.</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">% This command requires the package hyperref</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\nameref</span>{KEY} <span class="co">% Outputs the bane of such object labelled.</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level3">
+<ul>
+<li><p><strong>Beamer presentation</strong><br />
+</p>
+<ul>
+<li><p>Creation<br />
+Set <code>beamer</code> as the document class.</p></li>
+<li><p>Themes<br />
+<a href="https://hartwork.org/beamer-theme-matrix/">Here</a> are some popular themes and colorthemes for beamer.<br />
+Example:</p></li>
+</ul>
+<div class="sourceCode" id="cb36"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\usetheme</span>{Berkeley}</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\usecolortheme</span>{default}</span></code></pre></div>
+<ul>
+<li>Create a slide<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb37"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">frame</span>}[t|c|b]{Frame Title}</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">frame</span>}</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co">% The [.] and {.} next to {frame} are optional.</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co">% [t] sets the content to the top of the page;</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co">% [b], to the bottom, and; [c], to the center.</span></span></code></pre></div>
+<ul>
+<li><p>Table of contents<br />
+Same command: <code>\tableofcontents</code></p></li>
+<li><p>Insert boxes<br />
+</p></li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Add block</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">block</span>}{Title}</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">block</span>}</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co">% Add alert </span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">alertblock</span>}{Title}</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">alertblock</span>}</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="co">% Add example(s)</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">example</span>}</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">example</span>} </span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="co">% The example environment does not allow to set it a title.</span></span></code></pre></div>
+<ul>
+<li>Insert columns<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Environment</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">columns</span>}</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\column</span>{X<span class="fu">\textwidth</span>}</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>content of this particular column</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">columns</span>}</span></code></pre></div>
+<ul>
+<li>Automatically add necessary frames<br />
+If one frame environment contains so much content that not all of it can get displayed in one slide, simply change the frame environment as follows:<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">frame</span>}[allowframebreaks]{title}    </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">frame</span>}</span></code></pre></div>
+<p>Now the missing content will be displayed in the necessary amount of slides.</p>
+<ul>
+<li>Set a pause<br />
+You can pause the display of lists, blocks, text, etc.<br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">frame</span>}</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">itemize</span>}</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\item</span> 1 <span class="fu">\pause</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\item</span> 2 <span class="fu">\pause</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">itemize</span>}</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\vfill</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">itemize</span>}</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\item</span>&lt;2-&gt; 1  <span class="co">% Show this item second.</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\item</span>&lt;1-&gt; 2  <span class="co">% Show this item first.</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">itemize</span>}</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">frame</span>}</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">frame</span>}</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">block</span>}{Theorem}</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\pause</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>    For all <span class="ss">$ </span><span class="sc">\theta</span><span class="ss"> </span><span class="sc">\in</span><span class="ss"> </span><span class="sc">\mathbb</span><span class="ss">{R} $</span>, it holds </span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>    <span class="ss">$ </span><span class="sc">\cos</span><span class="ss">^2</span><span class="sc">\theta</span><span class="ss"> + </span><span class="sc">\sin</span><span class="ss">^2</span><span class="sc">\theta</span><span class="ss"> = 1 </span><span class="sc">\;</span><span class="ss"> . $</span></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">block</span>}</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a><span class="fu">\pause</span></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">alertblock</span>}{Extra}</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>    Also true if <span class="ss">$ </span><span class="sc">\theta</span><span class="ss"> $</span> is a complex number.</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">alertblock</span>}</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">frame</span>}</span></code></pre></div>
+<ul>
+<li>Change view of about to be displayed content<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Show in transparent the content about to be displayed</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\setbeamercovered</span>{transparent}</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co">% Hide the content about to be displayed</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\setbeamercovered</span>{invisible}</span></code></pre></div>
+<ul>
+<li>Special title, author, institution and logo<br />
+Sometimes the set <code>\title{...}, \author{...}, ...</code> can be too long to fit in the space provided by the beamer theme used. Therefore, you can add alternative values to those categories to appear in the proper beamer section.<br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb43"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">beamer</span>}</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\usetheme</span>{Madrid}</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\usecolortheme</span>{default}</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\title</span>[Animals and Flowers]{Basic Information about Wild Animals and Flowers}</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\author</span>[Firuza]{Firuza Karmali}</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\institute</span>[IIT Bombay]{{<span class="fu">\large</span> Indian Institute of Technology Bombay}}</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\logo</span>{<span class="bu">\includegraphics</span>[height=1cm]{<span class="ex">pi.jpg</span>}}</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="co">% The content in [] will appear in the bottom section of each beamer slides,</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="co">% while the content in {} will appear in the slide where \maketitle is applied.</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="co">% The logo will appear at the bottom right of every slide.</span></span></code></pre></div>
+<ul>
+<li>Change the color of objects in Beamer<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb44"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">% Theme color</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\setbeamercolor</span>{structure}{fg=color}</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co">% Tertiary</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\setbeamercolor</span>{palette tertiary}{bg=color, fg=color}</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co">% Secondary</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\setbeamercolor</span>{palette secondary}{bg=color, fg=color}</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="co">% Primary</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="fu">\setbeamercolor</span>{palette primary}{bg=color, fg=color}</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="co">% Title</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\setbeamercolor</span>{title}{bg=color, fg=color}</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="co">% Frame Title</span></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\setbeamercolor</span>{frametitle}{bg=color, fg=color}</span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a><span class="co">% Slide background </span></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a><span class="fu">\setbeamercolor</span>{background canvas}{bg=color}</span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a><span class="co">% You can also use the &quot;!proportion&quot; command to mix colors </span></span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a><span class="co">% in the &quot;color&quot; section after &quot;bg=&quot; or &quot;fg=&quot;.</span></span></code></pre></div>
+<ul>
+<li>Specify the aspect ratio of the slides</li>
+</ul>
+<div class="sourceCode" id="cb45"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">% 16:9</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>[aspectratio=169]{<span class="ex">beamer</span>}</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co">% 4:3</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>[aspectratio=43]{<span class="ex">beamer</span>}</span></code></pre></div>
+<p style="margin-bottom: -10px;">
+<p> </p>
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Add curved line on top of symbol</strong><br />
+Example:<br />
+<span class="math inline">\(\widetilde{M}\)</span> as <code>\widetilde{M}</code> .
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Create a diagram</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb46"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">article</span>}</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">tikz-cd</span>}</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="ss">\[</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzcd</span>}</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    U </span><span class="sc">\arrow</span><span class="ss">[r,&quot;f&quot;] &amp;</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    V  </span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="sc">\\</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="sc">\widetilde</span><span class="ss">{U} </span><span class="sc">\arrow</span><span class="ss">[u,&quot;</span><span class="sc">\varphi</span><span class="ss">&quot;]</span><span class="sc">\arrow</span><span class="ss">[r,swap,&quot;Id&quot;] &amp;      </span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    </span><span class="sc">\widetilde</span><span class="ss">{U} </span><span class="sc">\arrow</span><span class="ss">[u,swap,&quot;</span><span class="sc">\phi\circ\widetilde</span><span class="ss">{f}&quot;] </span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzcd</span>}</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="ss">\]</span></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+It does not seem to work natively in Rmarkdown.
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Symbol for orthogonal vector</strong><br />
+<code>\perp</code> <span class="math inline">\(\Rightarrow \; \perp\)</span><br />
+<code>\not\perp</code> <span class="math inline">\(\Rightarrow \;\not\perp\)</span>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Horizontal braces</strong><br />
+Examples:<br />
+<span class="math inline">\(\underbrace{f \circ \alpha}_{\beta}\)</span> as <code>\underbrace{f \circ \alpha}_{\beta}</code>.</li>
+</ul>
+<span class="math inline">\(\overbrace{\mathbb{R}^n \times\cdots\times\mathbb{R}^n}^{n \text{ veces}}\)</span> as <code>\overbrace{\mathbb{R}^n \times\cdots\times\mathbb{R}^n}^{n \text{ veces}}</code>.
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Norm symbol</strong><br />
+Instead of using twice double <code>\mid</code>, try <code>\lVert x \rVert</code> for <span class="math inline">\(\lVert x \rVert \, .\)</span>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<!--#endregion-->
+
+<script>
+    // Toggle item's visibility based on their level
+    let level_1 = Array.prototype.slice.call(document.querySelectorAll('.level1'))
+    let level_2 = Array.prototype.slice.call(document.querySelectorAll('.level2'))
+    let level_3 = Array.prototype.slice.call(document.querySelectorAll('.level3'))
+    let level_4 = Array.prototype.slice.call(document.querySelectorAll('.level4'))
+    let level_5 = Array.prototype.slice.call(document.querySelectorAll('.level5'))
+    let levels = [level_1,level_2,level_3,level_4,level_5]
+
+
+    function toggle_visibility(number) {
+        // Display items of all levels
+        levels.forEach(level => level.forEach(item => item.style.display = 'block'))
+
+        while (number > 1) {
+            levels[number - 2].forEach(element => element.style.display = 'none')
+            number = number - 1;
+        }
+    }
+
+    // When using link in navigation bar,  make all item's visible again 
+    let botones = document.querySelectorAll('#navbar a');
+    botones.forEach(element => {
+        element.addEventListener('click', () => {
+            level_1.forEach(e => e.style.display = 'block');
+            level_2.forEach(e => e.style.display = 'block');
+            level_3.forEach(e => e.style.display = 'block');
+            level_4.forEach(e => e.style.display = 'block');
+            level_5.forEach(e => e.style.display = 'block');
+        })
+    });
+
+    // Color code of output_chunks
+    let output_chunks_code = document.querySelectorAll('pre code')
+    output_chunks_code.forEach(element => element.parentNode.style.backgroundImage = " linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1))")
+
+</script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

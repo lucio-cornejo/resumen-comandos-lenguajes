@@ -1,0 +1,950 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+xaringanExtra::use_panelset()
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<div class="level-buttons" style="display: inline-flex;">
+<button type="button" onclick="toggle_visibility(1)">Level 1</button>
+<button type="button" onclick="toggle_visibility(2)">Level 2</button>
+<button type="button" onclick="toggle_visibility(3)">Level 3</button>
+<button type="button" onclick="toggle_visibility(4)">Level 4</button>
+<button type="button" onclick="toggle_visibility(5)">Level 5</button>
+</div>
+
+<!--#region items -->
+
+<div class='level3'>
+- **Cheat sheet** \
+This 
+[summary](https://courses.edx.org/assets/courseware/v1/29eb39fb3d98de8923beb13401ac62ba/asset-v1:IITBombayX+LaTeX101x+1T2021+type@asset+block/CheatSheet_LaTeX_2019_11_13_Firuza.pdf)
+of LateX commands is from an online LateX course.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **List of LateX symbols** \
+[The Comprehensive LATEX Symbol List](http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf)
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **LateX fonts** \
+[The LateX Font Catalogue](https://www.tug.org/FontCatalogue/)
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Customize geometry of Rmarkdown pdf output** \
+You can set the geometry in the YAML section. \
+Examples:
+```yaml
+geometry: "left=5em,top=2.5em,right=5em,bottom=6em"
+
+geometry: "landscape"
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Math equations** \
+```text
+\( ... \) for inline math expressions.
+\[ ... \] for display-style expressions.
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Include LateX packages in rmd file** \
+In the YAML section of the Rmarkdown document include some text as in the following example: \
+```yaml
+header-includes:
+    - usepackage{unicode-math}
+    - usepackage{ragged2e}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Pdf output** \
+In order to avoid certain problems with LateX when the ouput file is pdf, 
+I suggest you add the following to the YAML section of the rmd document:
+```yaml
+output: 
+pdf_document:
+    latex_engine: xelatex
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level3'>
+- **Efficient way to find the LateX code for symbols** \
+This [site](http://detexify.kirelabs.org/classify.html) allows you to draw
+a symbol and it will output various possibilities for which LateX code to
+use in order to use that symbol (or an approximation of it in case your
+drawing is kinda bad).
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Spacing** \
+The ragged2e package does not seem to work when the output is html, 
+but it does when the output is a pdf file. In that case, you may use
+functions such as
+```latex
+\kern2em
+\vspace{1ex}
+\hspace{10ex}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Inline display style** \
+For prettier inline math equations can be made possible for symbols like
+`\int, \lim, \prod, ...`,  via `\displaystyle{ }`. \
+Comparison: \
+`\lim_{h\to\, 0}` \( \quad\Rightarrow\quad \lim_{h\to\, 0} \quad .\) \
+`\displaytyle{\lim_{h\to\, 0}}` \( \quad\Rightarrow\quad \displaystyle{\lim_{h\to\, 0}} \quad.\)  
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Cartesian product symbol** \
+\( \times \) as ` \times `
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Function composition symbol** \
+\( \circ \) as ` \circ `
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Reverse symbol of _belongs in_** \
+\( \in \) as `\in` and \( \ni \) as `\ni`.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Inner product symbol** \
+`\langle u,v \rangle` \( \quad\Rightarrow\quad \langle u,v \rangle \, .\)
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Basic structure of a book in LateX** \
+```latex
+documentclass{book}
+\title{LaTeX Document}
+\author{Wikipedia \\ Collated by Firuza}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Overview}
+
+\section{Overall Description}
+
+\section{Introduction}
+\paragraph{}
+Dhansak is a popular Indian dish, originating among the Parsi Zoroastrian community.
+
+\subsection{Purpose}
+\end{document}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Avoid entry in table of contents** \
+Possible using \* as in the following examples:
+```latex
+\chapter*{Introduction}
+\subsection*{Time-table}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Proper quotes use** \
+\` for the opening of quotes, and \' for closing them.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Set margin of the pages** \
+Example:
+```latex
+% Write between documentclass{article} and begin{document}
+\usepackage[a4paper,margin=2in]{geometry} % 2 inches in all 4 sides of the page
+\usepackage[a5paper,top=1in,left=2in,right=0.75in,bottom=1in]{geometry}
+
+% Write between documentclass{book} and begin{document}
+\usepackage[inner= 1.5in,outer=0.5in]{geometry}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Remove page numbering** \
+```latex
+% Insert in the document environment
+\pagenumbering{gobble}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Customize the page numbering** \
+For a book document class, one can set when to start counting the pages via 
+`\setcounter{page}{1}`. \
+I prefer the following customization for the beggining of a book:
+```latex
+\begin{document}
+\maketitle
+\pagenumbering{gobble}
+
+\tableofcontents
+\pagenumbering{roman}
+
+\chapter{Introduction}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\section{blank}
+% ...
+
+\end{document}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Rotate page content by 90 degrees** \
+```latex
+\usepackage{lscape}
+
+\begin{document}
+
+\begin{landscape}
+    
+    Content to be presented in the rotated page.
+
+\end{landscape}
+
+\end{document}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Make pdf easier to read online** \
+If the pdf document will most likely be read in a pc,
+it becomes easier to do so if you include 
+`\usepackage[landscape]{geometry}`. That way, everything
+inside the document environment will be affected by the 
+landscape environment.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Page break vs new page** \
+From stackexchange: \
+`\pagebreak` tries to make the page the same height as other pages if it's possible (by stretching intervals between paragraphs etc) 
+and `\newpage` just fills the page with empty space.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Insert footnote** \
+Example:
+```latex
+% Inside the document environment
+    arbitrary text to be footnoted \footnote{content of this footnote}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Column formatting** \
+* For just two columns, you can set 
+`\documentclass[twocolumn]{...}`.
+
+* For more than two columns, no need to alter the documnt class,
+but add instead `\usepackage{multicol}` and incude the text to be 
+_columnized_ in the proper environment:
+```latex
+\begin{multicols}{n} % n is the number of columns
+% content
+\end{multicols}
+```
+
+* Change the distance between columns with
+`	\setlength{\columnsep}{20pt}`, where its last argument defines such distance.
+
+* Add a bar to separate the columns with 
+`	\setlength{\columnseprule}{1pt}`, where its last argument defines the thickness of the bar.
+
+* Set where to start the next column with 
+`\columnbreak` .
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Changing font size** \
+To set the new font size for the rest of the document, type, for example, 
+`\large`; but, if you only want to apply a font size to a specific part of the text,
+type, for example, `{\large content ...}` .
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Customizing text color** \
+Example: 
+```latex
+\documentclass{article}
+\usepackage[dvipsnames]{xcolor} 
+
+\begin{document}
+
+% Mix white with 60% of red
+\pagecolor{red!60}    
+
+% Mix blue with 10% of red
+\textcolor{red!10!blue}{texto}
+
+\end{document}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Aligning text** \
+By default, LateX's text is fully justified, but you can change it via:
+```latex
+\begin{document}
+
+\centering
+texto
+
+\flushleft
+texto
+
+\flushright
+texto
+
+\justify    % This one requires the package ragged2e
+texto
+
+\end{document}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Spacing** \
+```latex
+% For the space between lines of text, the following commands set a new standard for the WHOLE document:
+\singlespacing
+\onehalfspacing
+\doublespacing
+
+% You can also set a custom spacing using the setspace package:
+\spacing{X}
+
+\begin{spacing}{X}
+...
+\end{spacing}
+
+% Basic vertical spacing commands:
+\vspace{Xpt}
+\smallskip
+\medskip
+\bigskip
+\vfill    % Very useful for typing the "cover" of a document.
+
+% Basic horizontal spacing commands:
+\    % Adds a single space
+\,
+\hspace{Xpt}
+\hfill
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Create lists** \
+```latex
+% Types of lists
+\begin{itemize | enumerate | description}
+\item ...
+\item [...] ...    % Used only with description
+\end{itemize | enumerate | description}
+
+% There is a limitation of 4 levels (list inside list) nesting.
+
+% Change numbering style
+\usepackage{enumerate} \begin{enumerate}[...]
+
+% Change bullet Style
+\usepackage{amssymb}
+\renewcommand{\labelitem<Level>}{$<Style>$}
+
+Examples:
+\renewcommand{\labelitemi}{$ \diamond $}
+\renewcommand{\labelitemii}{$ \cdot $}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Create matrix** \
+Example:
+```latex
+% Requires the package amsmath 
+$
+\begin{pmatrix}			  % ( ) symbols for matrix
+    a_{11} & a_{12} \\    % New row 
+    a_{21} & a_{22} 		
+\end{pmatrix}
+\kern2em
+\begin{bmatrix}			  % [ ] symbols for matrix
+    a_{11} & a_{12} \\     
+    a_{21} & a_{22} 		
+\end{bmatrix}
+$
+
+% No extra package required
+
+\[ \left(\begin{array}{ccc}
+1 & 2 \\
+2 & 4 
+\end{array}\right) \]
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Create equation** \
+Example:
+```latex
+\begin{equation}
+    \cos^2 x - \sin^2 x = \cos(2x)
+\end{equation}
+% It automatically becomes centered and the equation number is displayed.
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Align equations** \
+Example:
+```latex
+% Requires the package amsmath 
+\begin{align}
+    x^2 - 2x &= -1   \\			      % New line 
+    x^2 -2x +1 &= 0  \nonumber\\  
+    % The & symbol sets the following character in the same horizontal position
+    (x-1)^2 &= 0     \nonumber\\
+    x &= 1 			     \nonumber   
+    % \nonumbber means "do not label this equation"
+\end{align}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Create a table** \
+Example:
+```latex
+\begin{tabular}{clrp{4cm}}
+No. & Item & Price & Qty \\ 
+1   & Mouse & 10 &  1    \\
+% & separates columns
+% \\ is for new row
+% c: center; l: left; r: right
+% p{Xcm} sets a length of X cm for such column.
+\end{tabular}
+```
+Add lines:
+```latex
+\begin{tabular}{|c|l|l|r|}    % Each | is a vertical line
+\hline    % horizontal line
+No. & Item & Quantity & Price \\
+\hline
+1 & Pen & 3 & 10 \\
+\cline{1-2} \cline{4-4}    
+% Horizontal line between columns 1 and 2
+% Horizontal line for column 4
+2 & Pencil & & 5 \\
+\hline
+\end{tabular}
+```
+You can use the package `arydshln` to apply dashed lines instead, via:
+```latex
+\hdashline[size of dash / space between dashes]
+\cdashline {i-j}[size of dash / space between dashes]
+% The vertical dashed line is used with, for example:
+% \begin{tabular}{:c:l:l:r:}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Merge table's rows or columns** \
+Merge rows:
+```latex
+% Requires the package multirow and the command
+% \multirow{Numbe_of_rows}{width}{content}
+% Example:
+\begin{tabular}{|c|l|l|r|}
+\hline
+No. & Item & Quantity & Price \\
+\hline
+1 & Pen & \multirow{2}{*}{3} & 10 \\
+...
+% The * symbol is to keep the previously length of such column
+% Rows 2 and 3 got merged
+```
+Merge columns:
+```latex
+% Does not require to add a package
+% Example:
+\begin{tabular}{|c|l|l|r|}
+\hline
+\multicolumn{4}{|c|}{Stationery Items} \\ 
+% Four columns have been merged
+\hline
+No. & Item & Quantity & Price \\
+...
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Change the spacing for tables** \
+Insert the command 
+`\renewcommand{\arraystretch}{value}`
+before the tabular environment. The default "value" is 1,
+but 1.5 works better, in my opinion.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Table that spans more than one page** \
+To address this problem, when using the tabular environment,
+use the package `longtable` and change the environment of the 
+table to `longtable`, instead of tabular. \
+If you wish that the first \( n \) rows of your table get repeated
+in every page that your table spans, insert `\endhead` right after
+the last row you wish to be repeated.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Table environment** \
+It allows us to add captions and change the position of the table: \
+* Environment:
+```latex
+\begin{table}[position]
+    your tabular code
+    \caption{...}
+\end{table}
+
+% Position:
+% t: Insert table at top of the page.
+% b: Insert table at bottom of the page.
+% h: Insert table approximately here.
+```
+
+* You can create a "table of contents" analogue for the tables, 
+via the command `\listoftables` .
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Include images** \
+It requires the `graphicx` package, which supports  
+jpg, png, eps and pdf files. The image must be in the same folder as the tex file.
+
+* Scaling
+```latex
+\includegraphics{image.jpg}
+\includegraphics[height=4cm]{image.pdf}
+\includegraphics[width=4cm]{image.png}
+
+% The following example is not recommended, due to changing the 
+% proportions of the image.
+\includegraphics[width=4cm, height=4cm]{image.eps}
+
+\includegraphics[scale=0.5]{image.png}
+```
+
+* Crop
+```latex
+\includegraphics[clip=true, trim=15mm 5mm 7mm 3mm]{image.png}
+```
+
+* Rotate 
+```latex
+\includegraphics[angle=60]{image.png}
+```
+
+* Add an image border
+```latex
+\fbox{ \includegraphics... }
+
+% Adjust the border thickness with:
+\setlength{\fboxrule}{2pt}
+
+% Change the distance bewtween the image 
+% and its border with:
+\setlength{\fboxsep}{15pt}
+
+% Both last commands only affect the
+% \includegraphics{...} that appear after them.
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **The figure environment** \
+It allows us to position the figure and add a caption to it. \
+Example:
+```latex
+\begin{figure}[position]
+\includegraphics[...]{...}
+\caption{...}
+\end{figure}
+```
+You can add a "table of contents" analogue for the figures with
+`\listoffigures`  .
+
+* Add sub-figures
+It requires the packages `caption` and `subcaption`  .\
+Basic structure:
+```latex
+\begin{figure}[<position>]
+    \begin{subfigure}{<width>}
+    \includegraphics...
+    \caption{...}
+    \end{subfigure}
+    ...
+    \caption{...}
+\end{figure}
+```
+Example: 
+```latex
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+    % Notice the necessary "0.3" because we include 3 figures.
+    % For just two figures, "0.4" would have sufficed.
+    \centering
+    \includegraphics[width=\textwidth]{image.png}
+    \caption{Original Image}
+    \end{subfigure}
+    \hfill % So that the sub figures aren't right next to each other.
+    \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=\textwidth, angle=90]{images/parrot.png}
+    \caption{Rotated by 90 degrees}
+    \end{subfigure}	
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=\textwidth, angle=90]{images/parrot.png}
+    \caption{Rotated by 90 degrees}
+    \end{subfigure}	
+    \caption{Image of a Parrot}
+\end{figure}
+```
+If you leave blank lines in the figure environment, the subfigures may not be shown in the same line. \
+To remove the \"(a)\" automatic label of the subfigure caption, include 
+`\captionsetup[subfigure]{labelformat=empty}` in the beggining of the document environment.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Creating the cover** \
+It's done in the `titlepage` environment. \
+Example:
+```latex
+\begin{titlepage}
+    \centering
+    
+    \huge
+    \textbf{Car\'atula}
+    \vfill
+    
+    \Large
+    \textbf{Submited by } \\
+    \medskip
+    Lucio Cornejo
+    \vfill
+    
+    PUCP
+    \vfill
+    
+    August  4
+    \vfill
+    
+    2021	
+\end{titlepage}
+```
+LateX will automatically not number the page of \"titlepage\",
+and it will begin counting the pages from the next page instead.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Include hyperlinks and hypertext** \
+It requires the packages `url` and `hyperref`. \
+Display a link with, for example,
+`\url{https://www.google.com/}`  . \
+Create hypertext with 
+`\href{https://www.overleaf.com}{Overleaf}`, 
+where the second \{ \} contains what will be displayed but 
+takes you when clicked to the url denoted.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Cross referencing** \
+Label a section, subsection, table, figure or page number via `\label{KEY}`,
+and refer to them via the following:
+```latex
+\ref{KEY}     % Outputs the index number of such object labelled.
+\pageref{KEY} % Outputs the page number of such object labelled.
+
+% This command requires the package hyperref
+\nameref{KEY} % Outputs the bane of such object labelled.
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level3'>
+- **Beamer presentation** \
+    * Creation \
+    Set `beamer` as the document class.
+
+    * Themes \
+    [Here](https://hartwork.org/beamer-theme-matrix/)
+    are some popular themes and colorthemes for beamer. \
+    Example:
+    ```latex
+    \usetheme{Berkeley}
+    \usecolortheme{default}
+    ```
+
+    * Create a slide \
+    ```latex
+    \begin{frame}[t|c|b]{Frame Title}
+    ...
+    \end{frame}
+
+    % The [.] and {.} next to {frame} are optional.
+    % [t] sets the content to the top of the page;
+    % [b], to the bottom, and; [c], to the center.
+    ```
+
+    * Table of contents \
+    Same command: `\tableofcontents`
+
+    * Insert boxes \
+    ```latex
+    % Add block
+    \begin{block}{Title}
+    ...
+    \end{block}
+
+    % Add alert 
+    \begin{alertblock}{Title}
+    ...
+    \end{alertblock}
+
+    % Add example(s)
+    \begin{example}
+    ...
+    \end{example} 
+    % The example environment does not allow to set it a title.
+    ```
+
+    * Insert columns \
+    ```latex
+    % Environment
+    \begin{columns}
+    \column{X\textwidth}
+    content of this particular column
+    ...
+    \end{columns}
+    ```
+
+    * Automatically add necessary frames \
+    If one frame environment contains so much content that not all of it can get displayed in 
+    one slide, simply change the frame environment as follows: \
+    ```latex
+    \begin{frame}[allowframebreaks]{title}    
+    ...
+    \end{frame}
+    ```
+    Now the missing content will be displayed in the necessary amount of slides.
+
+    * Set a pause \
+    You can pause the display of lists, blocks, text, etc. \
+    Example:
+    ```latex
+    \begin{frame}
+    \begin{itemize}
+        \item 1 \pause
+        \item 2 \pause
+    \end{itemize}
+
+    \vfill
+
+    \begin{itemize}
+        \item<2-> 1  % Show this item second.
+        \item<1-> 2  % Show this item first.
+    \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+    \begin{block}{Theorem}
+        \pause
+        For all $ \theta \in \mathbb{R} $, it holds 
+        $ \cos^2\theta + \sin^2\theta = 1 \; . $
+    \end{block}
+    \pause
+
+    \begin{alertblock}{Extra}
+        Also true if $ \theta $ is a complex number.
+    \end{alertblock}
+    \end{frame}
+    ```
+
+    * Change view of about to be displayed content \
+    ```latex
+    % Show in transparent the content about to be displayed
+    \setbeamercovered{transparent}
+
+    % Hide the content about to be displayed
+    \setbeamercovered{invisible}
+    ```
+
+    * Special title, author, institution and logo \
+    Sometimes the set `\title{...}, \author{...}, ...`  can be too long to fit in
+    the space provided by the beamer theme used. Therefore, you can add alternative 
+    values to those categories to appear in the proper beamer section. \
+    Example:
+    ```latex
+    \documentclass{beamer}
+    \usetheme{Madrid}
+    \usecolortheme{default}
+
+    \title[Animals and Flowers]{Basic Information about Wild Animals and Flowers}
+    \author[Firuza]{Firuza Karmali}
+    \institute[IIT Bombay]{{\large Indian Institute of Technology Bombay}}
+    \logo{\includegraphics[height=1cm]{pi.jpg}}
+
+    % The content in [] will appear in the bottom section of each beamer slides,
+    % while the content in {} will appear in the slide where \maketitle is applied.
+    % The logo will appear at the bottom right of every slide.
+    ```
+
+    * Change the color of objects in Beamer\
+    ```latex
+    % Theme color
+    \setbeamercolor{structure}{fg=color}
+
+    % Tertiary
+    \setbeamercolor{palette tertiary}{bg=color, fg=color}
+
+    % Secondary
+    \setbeamercolor{palette secondary}{bg=color, fg=color}
+
+    % Primary
+    \setbeamercolor{palette primary}{bg=color, fg=color}
+
+    % Title
+    \setbeamercolor{title}{bg=color, fg=color}
+
+    % Frame Title
+    \setbeamercolor{frametitle}{bg=color, fg=color}
+
+    % Slide background 
+    \setbeamercolor{background canvas}{bg=color}
+
+    % You can also use the "!proportion" command to mix colors 
+    % in the "color" section after "bg=" or "fg=".
+    ```
+
+    * Specify the aspect ratio of the slides
+    ```latex
+    % 16:9
+    \documentclass[aspectratio=169]{beamer}
+    % 4:3
+    \documentclass[aspectratio=43]{beamer}
+    ```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Add curved line on top of symbol** \
+Example: \
+\( \widetilde{M} \) as `\widetilde{M}` .
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Create a diagram** \
+Example: 
+```latex
+\documentclass{article}
+\usepackage{tikz-cd}
+\begin{document}
+\[
+\begin{tikzcd}
+    U \arrow[r,"f"] &
+    V  
+    \\
+    \widetilde{U} \arrow[u,"\varphi"]\arrow[r,swap,"Id"] &		
+    \widetilde{U} \arrow[u,swap,"\phi\circ\widetilde{f}"] 
+\end{tikzcd}
+\]
+\end{document}
+```
+It does not seem to work natively in Rmarkdown.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Symbol for orthogonal vector** \
+`\perp` \( \Rightarrow \; \perp\) \
+`\not\perp` \( \Rightarrow \;\not\perp \)
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Horizontal braces** \
+Examples: \
+\( \underbrace{f \circ \alpha}_{\beta} \) as `\underbrace{f \circ \alpha}_{\beta}`. 
+
+\( \overbrace{\mathbb{R}^n \times\cdots\times\mathbb{R}^n}^{n \text{ veces}}\) as `\overbrace{\mathbb{R}^n \times\cdots\times\mathbb{R}^n}^{n \text{ veces}}`.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Norm symbol** \
+Instead of using twice double `\mid`, try `\lVert x \rVert` for \( \lVert x \rVert \, .\)
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<!--#endregion-->
+

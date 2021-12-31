@@ -1,0 +1,32 @@
+---
+title: "A compilation of knowledge acquired from learning Computer Science"
+---
+
+<br>
+
+Each section is equipped with **5 buttons** which toggle the visibility of 
+the items in such section.  
+Every item has a **level** assigned between 1 and 5, depending on how
+important such item's information is.  
+**Level 1** corresponds to basic knowledge.  
+**Level 5** corresponds to very useful (at least for me) tools which 
+should, ideally, not be forgotten.  
+The **greater** the item's _usefulness_, the **greater** its _level_.
+
+Press the button _Level n_ to only show the 
+items with level greater than or equal to _n_.
+
+```{r, include=FALSE}
+library(sass)
+sass(sass_file('my-style.scss'), output='my-style.css')
+```
+
+<br>
+
+<div class="level-buttons" style="display: inline-flex;">
+<button type="button" onclick="toggle_visibility(1)">Level 1</button>
+<button type="button" onclick="toggle_visibility(2)">Level 2</button>
+<button type="button" onclick="toggle_visibility(3)">Level 3</button>
+<button type="button" onclick="toggle_visibility(4)">Level 4</button>
+<button type="button" onclick="toggle_visibility(5)">Level 5</button>
+</div>

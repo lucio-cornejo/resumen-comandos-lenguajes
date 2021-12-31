@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>vs-code.knit</title>
+
+<script src="site_libs/header-attrs-2.11.4/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+<script src="site_libs/panelset-0.2.6/panelset.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" href="favicon.ico"/>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+<link rel="stylesheet" href="my-style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Included languages: </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="r.html">
+    <span class="fab fa-r-project"></span>
+     
+     R
+  </a>
+</li>
+<li>
+  <a href="python.html">
+    <span class="fab fa-python"></span>
+     
+     Python
+  </a>
+</li>
+<li>
+  <a href="web-development.html">
+    <span class="fa fa-html5"></span>
+     
+     Web development
+  </a>
+</li>
+<li>
+  <a href="git.html">
+    <span class="fa fa-github"></span>
+     
+     Git
+  </a>
+</li>
+<li>
+  <a href="latex.html">
+    <span class="fa fa-file-pdf"></span>
+     
+     LaTeX
+  </a>
+</li>
+<li>
+  <a href="vs-code.html">
+    <span class="fab fa-windows"></span>
+     
+    VS Code
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<script src="https://kit.fontawesome.com/7ff19d7086.js" crossorigin="anonymous"></script>
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div class="level-buttons" style="display: inline-flex;">
+<button type="button" onclick="toggle_visibility(1)">
+Level 1
+</button>
+<button type="button" onclick="toggle_visibility(2)">
+Level 2
+</button>
+<button type="button" onclick="toggle_visibility(3)">
+Level 3
+</button>
+<button type="button" onclick="toggle_visibility(4)">
+Level 4
+</button>
+<button type="button" onclick="toggle_visibility(5)">
+Level 5
+</button>
+</div>
+<!--#region items -->
+<div class="level1">
+<ul>
+<li><strong>Insert multi cursor in highlighted area in VS code</strong><br />
+<code>alt+shift+i</code> in my pc<br />
+<a href="https://stackoverflow.com/questions/31490989/how-do-i-get-a-cursor-on-every-line-in-vscode" class="uri">https://stackoverflow.com/questions/31490989/how-do-i-get-a-cursor-on-every-line-in-vscode</a>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Makes less crashabe to use names in region foldings for VS code</strong><br />
+<a href="https://marketplace.visualstudio.com/items?itemName=maptz.regionfolder" class="uri">https://marketplace.visualstudio.com/items?itemName=maptz.regionfolder</a>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Comment/uncomment highlighted code</strong><br />
+In my pc: <code>ctrl+shift+c</code><br />
+Set the keybinding to the command <code>Toggle Line Comment</code>.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Select all iterations of a word in code</strong><br />
+<code>ctrl+shift+l</code> in my pc.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Delete current line</strong><br />
+In my pc: <code>ctrl+d</code>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Select current line</strong><br />
+In my pc: <code>ctrl+l</code>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Permutate order of lines</strong><br />
+In my pc: <code>alt+up</code> or <code>alt+down</code>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Region folding</strong><br />
+In my pc:<br />
+Fold current region: <code>ctrl+shift+f</code><br />
+Unfold current region: <code>ctrl+shift+u</code><br />
+Fold all regions: <code>alt+shift+f</code> Unfold all regions: <code>alt+shift+u</code>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Toggle auto save</strong><br />
+<code>ctrl+alt+a s</code> in my pc.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><p><strong>Commands for previewing</strong><br />
+In my pc:<br />
+</p></li>
+<li><p>Markdown preview in window to the side of md document: <code>ctrl+alt+p m</code></p></li>
+<li><p>HTML preview in window to the side of md document: <code>ctrl+alt+p h</code></p></li>
+<li><p>In a new browser window, open server for index.html file in the current VS Code workspace: <code>ctrl+alt+p s</code></p>
+<p style="margin-bottom: -10px;">
+<p> </p>
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Show/hide Explorer section</strong><br />
+<code>ctlr+b</code>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Toggle terminal</strong><br />
+In my pc: <code>shift+alt+up</code>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Set tab commands like in Google Chrome </strong><br />
+<a href="https://stackoverflow.com/questions/38957302/is-there-a-quick-change-tabs-function-in-visual-studio-code#:~:text=105-,Windows,switch%20to%20the%20next%20tab." class="uri">https://stackoverflow.com/questions/38957302/is-there-a-quick-change-tabs-function-in-visual-studio-code#:~:text=105-,Windows,switch%20to%20the%20next%20tab.</a></li>
+</ul>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Change formatt for relative path</strong><br />
+<a href="https://www.youtube.com/watch?v=CFfl26rMLsg&amp;ab_channel=Code2020" class="uri">https://www.youtube.com/watch?v=CFfl26rMLsg&amp;ab_channel=Code2020</a>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Execute selected text into R</strong><br />
+In my pc: <code>ctrl+shift+r</code>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<!--#endregion-->
+
+<script>
+    // Toggle item's visibility based on their level
+    let level_1 = Array.prototype.slice.call(document.querySelectorAll('.level1'))
+    let level_2 = Array.prototype.slice.call(document.querySelectorAll('.level2'))
+    let level_3 = Array.prototype.slice.call(document.querySelectorAll('.level3'))
+    let level_4 = Array.prototype.slice.call(document.querySelectorAll('.level4'))
+    let level_5 = Array.prototype.slice.call(document.querySelectorAll('.level5'))
+    let levels = [level_1,level_2,level_3,level_4,level_5]
+
+
+    function toggle_visibility(number) {
+        // Display items of all levels
+        levels.forEach(level => level.forEach(item => item.style.display = 'block'))
+
+        while (number > 1) {
+            levels[number - 2].forEach(element => element.style.display = 'none')
+            number = number - 1;
+        }
+    }
+
+    // When using link in navigation bar,  make all item's visible again 
+    let botones = document.querySelectorAll('#navbar a');
+    botones.forEach(element => {
+        element.addEventListener('click', () => {
+            level_1.forEach(e => e.style.display = 'block');
+            level_2.forEach(e => e.style.display = 'block');
+            level_3.forEach(e => e.style.display = 'block');
+            level_4.forEach(e => e.style.display = 'block');
+            level_5.forEach(e => e.style.display = 'block');
+        })
+    });
+
+    // Color code of output_chunks
+    let output_chunks_code = document.querySelectorAll('pre code')
+    output_chunks_code.forEach(element => element.parentNode.style.backgroundImage = " linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1))")
+
+</script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

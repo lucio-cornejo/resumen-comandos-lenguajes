@@ -1,0 +1,127 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+xaringanExtra::use_panelset()
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<div class="level-buttons" style="display: inline-flex;">
+<button type="button" onclick="toggle_visibility(1)">Level 1</button>
+<button type="button" onclick="toggle_visibility(2)">Level 2</button>
+<button type="button" onclick="toggle_visibility(3)">Level 3</button>
+<button type="button" onclick="toggle_visibility(4)">Level 4</button>
+<button type="button" onclick="toggle_visibility(5)">Level 5</button>
+</div>
+
+<!--#region items -->
+<div class="level1">
+- **Insert multi cursor in highlighted area in VS code** \
+`alt+shift+i` in my pc \
+https://stackoverflow.com/questions/31490989/how-do-i-get-a-cursor-on-every-line-in-vscode
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Makes less crashabe to use names in region foldings for VS code** \
+https://marketplace.visualstudio.com/items?itemName=maptz.regionfolder
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Comment/uncomment highlighted code** \
+In my pc: 
+`ctrl+shift+c` \
+Set the keybinding to the command `Toggle Line Comment`. 
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Select all iterations of a word in code** \
+`ctrl+shift+l`  in my pc.
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Delete current line** \
+In my pc: `ctrl+d` 
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Select current line** \
+In my pc: `ctrl+l` 
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Permutate order of lines** \
+In my pc: `alt+up` or `alt+down`
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Region folding** \
+In my pc: \
+Fold current region: `ctrl+shift+f`   
+Unfold current region: `ctrl+shift+u`   
+Fold all regions: `alt+shift+f` 
+Unfold all regions: `alt+shift+u` 
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Toggle auto save** \
+`ctrl+alt+a s` in my pc.
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Commands for previewing** \
+In my pc: \
++ Markdown preview in window to the side of md document:
+`ctrl+alt+p m` 
+
++ HTML preview in window to the side of md document:
+`ctrl+alt+p h` 
+
++ In a new browser window, open server for index.html file 
+in the current VS Code workspace:
+`ctrl+alt+p s` 
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Show/hide Explorer section** \
+`ctlr+b` 
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Toggle terminal** \
+In my pc: `shift+alt+up` 
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Set tab commands like in Google Chrome ** \
+<https://stackoverflow.com/questions/38957302/is-there-a-quick-change-tabs-function-in-visual-studio-code#:~:text=105-,Windows,switch%20to%20the%20next%20tab.>
+
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Change formatt for relative path** \
+<https://www.youtube.com/watch?v=CFfl26rMLsg&ab_channel=Code2020>
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<div class="level1">
+- **Execute selected text into R** \
+In my pc:
+`ctrl+shift+r` 
+<p style="margin-bottom: -10px;"> &nbsp; </p>
+</div>
+
+<!--#endregion-->

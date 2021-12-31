@@ -1,0 +1,47 @@
+// Navigation bar //
+#navbar {
+    span {
+        margin-right: 5px;
+    }
+
+    li {
+        font-size: 20px;
+    }
+}
+
+// Custom lists markers
+ul:first-child { list-style-image: url('custom-list-marker.png'); }
+ul ul { list-style-image: url('custom-list-marker-2.png'); }
+
+// Background image
+// body {background-image: repeating-linear-gradient(90deg, rgba(255,255,255, 0.09) 0px, rgba(255,255,255, 0.09) 36px,rgba(229, 229, 229,0.09) 36px, rgba(229, 229, 229,0.09) 72px,transparent 72px, transparent 108px,rgba(255,255,255, 0.09) 108px, rgba(255,255,255, 0.09) 144px,rgba(255,255,255, 0.09) 144px, rgba(255,255,255, 0.09) 180px),repeating-linear-gradient(90deg, rgba(119,112,112, 0.08) 0px, rgba(119,112,112, 0.08) 14px,transparent 14px, transparent 28px,rgba(119,112,112, 0.08) 28px, rgba(119,112,112, 0.08) 42px,transparent 42px, transparent 56px,rgba(119,112,112, 0.08) 56px, rgba(119,112,112, 0.08) 70px),repeating-linear-gradient(90deg, rgba(119,112,112, 0.08) 0px, rgba(119,112,112, 0.08) 23px,transparent 23px, transparent 46px,rgba(119,112,112, 0.08) 46px, rgba(119,112,112, 0.08) 69px,transparent 69px, transparent 92px,rgba(119,112,112, 0.08) 92px, rgba(119,112,112, 0.08) 115px),repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 6px,transparent 6px, transparent 12px,rgba(0,0,0,0.04) 12px, rgba(0,0,0,0.04) 18px,transparent 18px, transparent 24px,rgba(0,0,0,0.04) 24px, rgba(0,0,0,0.04) 30px),linear-gradient(90deg, rgb(255,255,255),rgb(255,255,255));}
+
+// Code in text
+code { background: #000000; color: #FFFFFF; }
+
+// Level buttons //
+.level-buttons { 
+    width: 100%; 
+
+    button {
+        &:not(:last-child) {margin-right: 12px;}
+
+        width: 20%;
+        padding: 7px;
+        color: black;
+        font-size: 17px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        background-color: skyblue;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));
+    }
+}
+
+// Xaringan panelsets //
+li.panel-tab {
+    color: white !important;
+    border: 1.5px solid black !important;
+    background-color: rgb(120, 140, 245) !important;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.25));
+}
+.invisible {display: none;} // for header which starts Xaringan's panels

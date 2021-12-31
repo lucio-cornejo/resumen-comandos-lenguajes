@@ -1,0 +1,947 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+xaringanExtra::use_panelset()
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<div class="level-buttons" style="display: inline-flex;">
+<button type="button" onclick="toggle_visibility(1)">Level 1</button>
+<button type="button" onclick="toggle_visibility(2)">Level 2</button>
+<button type="button" onclick="toggle_visibility(3)">Level 3</button>
+<button type="button" onclick="toggle_visibility(4)">Level 4</button>
+<button type="button" onclick="toggle_visibility(5)">Level 5</button>
+</div>
+
+## {.panelset}
+
+<!--#region html items -->
+### HTML
+
+<div class='level1'>
+- **Headings** \
+There is up to 6 level headings, being `<h6> last heading level </h6>` the smallest one.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Create lists** \
+    + Ordered list \
+    Example:
+    ```html
+    <ol>
+        <li>First item</li>
+        <li>Second list</li>
+    </ol>
+    ```
+    `ol` = Ordered list \
+    `li` = List item 
+
+    + Unordered list \
+    Example:
+    ```html
+    <ul>
+        <li>One item</li>
+        <li>Another item</li>
+    </ul>
+    ```
+    `ul` = Unordered list
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Include an image** \
+```html
+<img src = "image.jpg" alt="name-for-image" width="number-of-pixels">
+<!-- Example: -->
+<img src = "pi.jpg" alt="sad_tree" width="1000">
+<!-- Where the image pi.jpg is in the same folder as the HTML file. -->
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+```
+
+<div class='level1'>
+- **Add links** \
+```text
+Example of link to website:
+<a href="https://google.com">Click here</a> 
+Where "a" stands for "anchor".
+
+Example of link to html file in same folder as 
+the one you'd be working with:
+<a href="some-file.html">Click me</a>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Create a table** \
+Example:
+```html
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>Ocean</th>
+            <th>Average Depth</th>
+            <th>Maximum depth</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Pacific Ocean</td>
+            <td>4200 m</td>
+            <td>10911 m</td>
+        </tr>
+        <tr>
+            <td>Atlantic Ocean</td>
+            <td>3646 m</td>
+            <td>8486 m</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+```
+Where the following stand for: \
+`thead`: Table headings \
+`tr`: Table row \
+`th`: Table heading \
+`tbody`: Body of the table \
+`td`: Table data 
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Division of the page** \
+It's not a division per se, but it works as a way to reference 
+a certain section of the web page \
+Example:
+```html
+<body>
+<div>
+    content
+</div>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Center a HTML table** \
+```css
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Define multiple classes for a HTML element** \
+Inside the `< ... class="..."...>`, you can only use `class` once, but multiple
+classes can assigned to some element via `< ... class="class-1 class-2" ...>`. \
+Be careful with that option because a selection via `[class="some-class"]` will
+only select the elements that have one class only, the *some-class* one. \
+Better use something like `[class*="some-class"]` instead.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Invalid characters inside a class name** \
+Some special characters can not be inside a class name, or they can but require special 
+rules to deal with it. \
+More information: <https://stackoverflow.com/questions/448981/which-characters-are-valid-in-css-class-names-selectors>
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Center HTML input tag** \
+<https://stackoverflow.com/questions/9264835/how-to-align-an-input-tag-to-the-center-without-specifying-the-width>
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Display text in only one line** \
+Add the CSS property `white-space: nowrap;` to what you wish
+no line break. To control whatever text that may not be displayed in
+the web page, use `overflow: ... ;`.\
+For example, to hide the non shoen text, use
+`overflow: hidden;` .
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Locate an element to top right corner of its parent container** 
+Example:
+```html
+<div style='position: relative;'>
+    <button style='position: absolute; right: 0;'>Click me</button>
+</div> 
+```
+Setting `left 0` instead of `right: 0` makes the button be positioned on 
+the top left corner of its parent `div`.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Create side to side tables** \
+Example:
+```html
+<div style='display: inline-flex'>
+<table>
+    <tr>
+    <td>1</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>1</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+    <td>1</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>1</td>
+    </tr>
+</table>
+</div>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level3'>
+- **Action** \
+Example:
+```html
+<head>
+    <title>Search</title>
+</head>
+<body>
+    <form action="https://google.com/search">
+        <input id="texto" type="text" name="q">
+        <input id="boton" type="submit" value="Google Search">
+    </form>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<!--#endregion-->
+
+<!--#region css items -->
+### CSS
+
+<div class='level1'>
+- **Limitation** \
+Currently in R Markdown, CSS chunks only work with HTML output types, not with pdf. 
+Although, CSS does work with the **R** package **pagedown**. \
+Either way, LateX can come in handy to fix that gap.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Useful summary from Harvard University** \
+[https://cs50.harvard.edu/web/2020/notes/0/](https://cs50.harvard.edu/web/2020/notes/0/)
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Get info of object to customize it with CSS** \
+Useful when the R Markdown output is html_document and you wish to customize some object from the web page.
+For Google Chrome, open the html file there and right click the object which you wish to customize, then click 
+"Inspeccionar"/"Inspect". A menu will appear and contain the necessary HTML data to get the **class** of the object you
+wish to customize, so, use that info in a CSS chunk in the R Markdown file.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Include a comment** \
+Example of CSS chunk: \
+```css
+h1 {color: #EF99E3; }
+/* this is a comment */
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Inline styling of a heading** \
+Examples:
+```text
+<h1 style="color: blue; text-align: center;">Welcome to my page</h1>
+
+## Section 2 {style="color:red;"}
+
+### Section 3 {onclick="alert('wow')"}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Not inline styling** \
+In the `head` section of a HTML document, you can include 
+the style of HTML components via `<style>`. \
+Example:
+```html
+<head>
+<title> Hello! </title>
+<style>
+    h1 {
+    color: blue;
+    text-align: center;
+    }
+</style>
+</head>
+```
+`Even better version:`
+```html
+<head>
+    <title> Hello! </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+```
+Where the arbitrary file `style.css` only contains the relevant CSS code.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Set fonts** \
+Font types: <https://www.w3.org/Style/Examples/007/fonts.en.html> \
+Example:
+```css
+div { 
+font-family: Arial, sans-serif;
+font-size: 28px;
+font-weight: bold;
+}
+```
+That way, the font sans-serif will be applied in case that the browser
+used does not recognize the other font, Arial in this case.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Apply styling to multiple objects** \
+Example:
+```html
+<style>
+    td,th {
+        border: 1px solid black;
+    padding: 5px;
+}
+</style>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Basic table styling** \
+Example:
+```html
+<head>
+<title> Hello! </title>
+<style>
+    table {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    td,th {
+        border: 1px solid black;
+        padding: 5px;
+    }
+</style>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Sexo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Lucio</td>
+            <td>M</td>
+        </tr>
+        <tr>
+            <td>Lucía</td>
+            <td>F</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Spacing between cells in a table** \
+Example: \
+```css
+table {
+border-spacing: 10px 15px;
+}
+```
+Such example establishes a vertical distance of 10px and a horizontal
+distance of 15px between the cells in a HTML table.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Referencing HTML objects** \
+You can use `class` to refer to a particular 
+set of HTML objects; and, `id`, to refer to an unique HTML object. \
+Example:
+```html
+<h1 id ="foo">Hello</h1>     Refer in CSS with #foo.
+<h2 class="fue">Hola</h2>    Refer in CSS with .fue
+```
+The `specificity` CSS hierarchy  works as follows: \
+
+1. inline 
+
+2. id 
+
+3. class
+
+4. type
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Style based on attributes** \
+Example:
+```html
+<head>
+<title> Hello! </title>
+<style>
+    a {
+        color: blue;
+    }
+    a[href="https://google.com"] {
+        color: red;
+    }
+</style>
+</head>
+<body>
+<ul>
+    <li><a href="https://google.com">Google</a></li>
+    <li><a href="https://facebook.com">Facebook</a></li>
+</ul>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Hover use of selector** \
+Example:
+```html
+<head>
+<title> Hello! </title>
+<style>
+    button {
+        background-color: green;
+    }
+    button:hover {
+        background-color: orange;
+    }
+</style>
+</head>
+<body>
+<button>Click me</button>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Media queries** \
+Example:
+```html
+<head>
+<title> Hello! </title>
+<style>
+    @media (min-width: 600px) {
+        /*
+        If width of page is 600px or larger, then perform:
+        */
+        body {
+            background-color: red;
+        }
+    }
+    @media (max-width: 599px) {
+        /*
+        If width of page is 599px or smaller, then perform:
+        */
+        body {
+            background-color: blue;
+        }
+    }
+</style>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Automatic wrapping of HTML content as page width changes** \
+Example:
+```html
+<head>
+<title> Hello! </title>
+<style>
+    #test {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #test > div {
+        background-color: blue;
+        width: 200px;
+        font-size:20px;
+        margin: 20px;
+        padding: 20px;
+    }   
+</style>
+</head>
+<body>
+    <div id="test">
+        <div>1. test </div>
+        <div>2. test </div>
+        <div>3. test </div>
+        <div>4. test </div>
+        <div>5. test </div>
+        <div>6. test </div>
+        <div>7. test </div>
+        <div>8. test </div>
+        <div>9. test </div>
+        <div>10. test </div>
+    </div>
+</body>
+```
+It does not seem to work in R Markdown when the content of `<div>` is a LaTeX equation.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Improve appearance on mobile** \
+Add the following line in the head of the HTML files: \
+`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Grid** \
+Example:
+```html
+<head>
+<title>My Web Page!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .grid {
+        background-color: green;
+        display: grid;
+        padding: 20px;
+        grid-column-gap: 20px;
+        grid-row-gap: 10px;
+        grid-template-columns: 200px 200px auto;
+    }
+
+    .grid-item {
+        background-color: white;
+        font-size: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div class="grid">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+        <div class="grid-item">10</div>
+        <div class="grid-item">11</div>
+        <div class="grid-item">12</div>
+    </div>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Bootstrap** \
+It's a CSS library with a lot of presets to work with. \
+To work with it, add the following line in the head of the HTML files: \
+`<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">` \
+For more Information, visit this [link](https://getbootstrap.com/docs/5.1/getting-started/introduction/).\
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Bootstrap HTML templates** \
+Visit this [link](https://community.rstudio.com/t/in-rstudio-R Markdown-how-to-add-new-html-themes-from-bootswatch/15791/2
+https://bootswatch.com/) to download some Bootstrap HTML page stylings.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level3'>
+- **Sass** \
+It's pretty much CSS on steroids. Some of its additional features compared to CSS are `defining variables`,
+`nesting` and `inheritance`. \
+Its files are of the type `.scss` and web browsers do not understand it. Therefore, you need to install
+`Sass` in order to convert the scss file into a css one and include it in the HTML document.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Overwrite inline styling** \
+To beat the inline `style` specification, use `!important`.\
+Example:
+```css
+h1 {
+    color: red !important;
+}
+```
+However, CSS code already with `!important` included can not be overwritten by `!important`.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Text sensitive attribute selectors** \
+```css
+/* Select every cell (with data attribute content) containing word "male" */
+td[data-content="male"] {
+color: red;
+}
+
+/* Select every cell starting on "p" case insensitive */
+td[data-content^="p" i] {
+color: blue;
+}
+
+/* Select every cell containing "4" */
+td[data-content*="4"] {
+color: green;
+}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Underline text** \
+Example:
+```css
+div {
+    text-decoration: underline;
+}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Underline text without breaking the line** \
+Example:
+```html
+<p>
+    Only highlight 
+    <span style="text-decoration: underline;">this</span>
+    word.
+</p>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Change spacing between lines** \
+```css
+body {
+    line-height: 22.5pt;    
+}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Some selector examples** \
+Useful explanation from <https://stackoverflow.com/questions/19931351/css-selectors-difference-between-body-h1-body-h1-and-body-h1>:
+```text
+* body.h1 will select the body element if it has a class of h1.
+    (ex. <body class='h1'>this one</body>)
+* body h1 will select all h1 elements in the body.
+    (ex. <body><h1>this one</h1></body>)
+    This is redundant in well-formed HTML, it will basically do the same thing as h1, 
+    because the only place an h1 element can be (if your HTML is well-formed) is in the body)
+* body .h1 will select all the elements that have the h1 class in the body.
+    (ex. <body><div class='h1'>this one</div></body>)
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **How to select parent but not its children** \
+Useful explanation: <https://stackoverflow.com/questions/38520419/how-to-select-parent-and-not-child-in-css>.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Select by lack of a certain property** \
+Useful explanation: <https://stackoverflow.com/questions/30835168/is-there-an-opposite-css-pseudo-class-to-hover>  
+Example:
+```css
+.child:not(:hover){
+opacity: 0.3;
+}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Hiding objects** \
+Objects like tables, paragraphs, etc, can be hidden via at least two CSS properties: "display: none;" and "visibility: hidden;" \
+But, using "visibility: hidden;" does not remove the space in the page occupied by such HTML object, while "display: none;" does.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Color linear gradient** \
+Example: \
+```css
+td {
+    background-image: linear-gradient(to right,rgba(255, 0, 0, 1) 50%,rgba(0, 0, 255, 1) 51%);
+}
+```
+Such example splits the background color of the cells in a table with the
+left half as red and the right half as blue. \
+Change the percentages to determine how the color gradient is applied.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Hide scrollbar but retain functionality** \
+In the following example, the class named `hidden-scroll` is the class of a tag which
+can be scrolled, but its scroll bar is not shown. \
+This option can be very useful for long math equations displayed on a HTML document, due
+to the limitations of the MathJax library and how it displays LaTeX equations as images.
+```css
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hidden-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hidden-scroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<!--#endregion-->
+
+<!--#region javascript items -->
+### JavaScript
+
+<div class='level2'>
+- **Automatic scrolling** \
+Example:
+```javascript
+// Choose some div (with overflow) to scroll
+let scrollable = document.querySelector('div');
+        
+// Define the standard sleep() function
+function sleep(miliseconds) {
+return new Promise(resolve => setTimeout(resolve, miliseconds));
+}
+
+let scrolling_time_in_miliseconds = 2000;
+let scrolling_transition_animation_precision = 100;
+
+async function initiateScrolling(){
+// Incrementally scroll little by little many times in order to simulate a continuous transition
+    for(var i=0; i<scrolling_transition_animation_precision; i++){
+        await sleep(scrolling_time_in_miliseconds/scrolling_transition_animation_precision);
+        scrollable.scrollBy(scrollable.scrollWidth/scrolling_transition_animation_precision,0);
+    }
+    
+    // Wait one second and reset the scroll back (smoothly, continuously) to its starting position
+    await sleep(1000);
+    scrollable.scrollBy({
+        left: -scrollable.scrollWidth,
+        behavior: 'smooth' 
+    });
+}
+
+// Perform the automatic scrolling
+initiateScrolling();
+```
+For more information, visit <https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollBy> .
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Trigger action on certain button(s) after clicking some button** \
+Example:
+```html
+<input type="button" value="whatever" class="activar" onclick="sth()"></input>
+<input type="button" value="activation" onclick="gooo()"></input>
+
+<script>   
+function gooo(){
+    $('.whatever').trigger('click');
+}
+function sth() {
+    // content ...
+}
+</script>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Get characters of a string** \
+Example:
+```js
+let palabra = "hola";
+alert(palabra.charAt(0)); // Displays the word "h".
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Remove characters from a string** \
+This method involves turning a string into array of its characters,
+removing some elements of such array and then join the characters left 
+into a new string. \
+Example:
+```js
+let t = document.querySelector('div');
+// t is a div which contains some text
+
+//  Convert string into array of characters
+let texto = t["textContent"].split(''); 
+
+// Remove the first two characters of the string
+texto.splice(0,1); texto.splice(0,1);
+
+// Remove the last two characters of the string
+texto.splice(texto.length - 1 ,1); texto.splice(texto.length - 1,1);
+
+// Set the initial text to its new value after joining the characters into a new string
+t["textContent"] = texto.join('');
+``` 
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Play a sound multiple times** \
+When you use a function like "click this and something will sound",
+as it's common with virtual pianos, there may be a problem where, after 
+click the _sound button_, you have to wait till the sound stops in order for the 
+next button click to activate the same sound. \
+The problem can be fixed using `currentTime = 0;` right before `play();`.
+Example:
+```html
+<audio id="nota" preload="auto"><source src="musical_notes/C4.mp3"></source></audio>
+<div id="sonido">
+<p>Click me to play a sound</p>
+</div>
+<script>
+    let audio;
+document.getElementById(sonido).addEventListener('click',function() {
+    audio = document.getElementById(nota);
+    audio.currentTime = 0;
+    audio.play();
+}
+</script>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Convert a HTML collection into an array** \
+Most efficient way: \
+```js
+let converted_array = Array.prototype.slice.call( some_html_collection );
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Set a time delay** \
+Example:
+```html
+<body>
+    <button onclick="doIt()">Do it</button>
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        async function doIt(){
+            for(var i=0;i<18;i++){
+                console.log(i.toString())
+                await sleep(100);
+            }
+        }
+    </script>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Get IP of webpage visitor** \
+Example using JQuery:
+```js
+// IPs of the visitors to this website for which
+// we grant permission to see the content of the site.
+const IP_exceptions = ['161.123.234.45','161.133.243.54']; 
+
+let pagina = document.querySelector('html');
+
+$.getJSON("https://jsonip.com/?callback=?", function (data) {
+if( !( IP_exceptions.includes(data['ip']) )) { 
+    // IP of user does not belong to someone granted permission to see site,
+    // so we delete the content of the website
+    pagina.remove();
+} else {
+    pagina.style.visibility = 'visible'; 
+    // this webpage had 'hidden' visibility when loaded
+}
+});
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Get first n elements of an array** \
+```js
+let slicedArray = old_array.slice(0,n)
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<!--#endregion-->

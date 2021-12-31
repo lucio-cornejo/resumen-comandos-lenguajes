@@ -1,0 +1,37 @@
+<script>
+    // Toggle item's visibility based on their level
+    let level_1 = Array.prototype.slice.call(document.querySelectorAll('.level1'))
+    let level_2 = Array.prototype.slice.call(document.querySelectorAll('.level2'))
+    let level_3 = Array.prototype.slice.call(document.querySelectorAll('.level3'))
+    let level_4 = Array.prototype.slice.call(document.querySelectorAll('.level4'))
+    let level_5 = Array.prototype.slice.call(document.querySelectorAll('.level5'))
+    let levels = [level_1,level_2,level_3,level_4,level_5]
+
+
+    function toggle_visibility(number) {
+        // Display items of all levels
+        levels.forEach(level => level.forEach(item => item.style.display = 'block'))
+
+        while (number > 1) {
+            levels[number - 2].forEach(element => element.style.display = 'none')
+            number = number - 1;
+        }
+    }
+
+    // When using link in navigation bar,  make all item's visible again 
+    let botones = document.querySelectorAll('#navbar a');
+    botones.forEach(element => {
+        element.addEventListener('click', () => {
+            level_1.forEach(e => e.style.display = 'block');
+            level_2.forEach(e => e.style.display = 'block');
+            level_3.forEach(e => e.style.display = 'block');
+            level_4.forEach(e => e.style.display = 'block');
+            level_5.forEach(e => e.style.display = 'block');
+        })
+    });
+
+    // Color code of output_chunks
+    let output_chunks_code = document.querySelectorAll('pre code')
+    output_chunks_code.forEach(element => element.parentNode.style.backgroundImage = " linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1))")
+
+</script>

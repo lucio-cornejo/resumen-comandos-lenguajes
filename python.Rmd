@@ -1,0 +1,126 @@
+---
+output: html_document
+--- 
+
+```{r setup, include=FALSE}
+xaringanExtra::use_panelset()
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<div class="level-buttons" style="display: inline-flex;">
+<button type="button" onclick="toggle_visibility(1)">Level 1</button>
+<button type="button" onclick="toggle_visibility(2)">Level 2</button>
+<button type="button" onclick="toggle_visibility(3)">Level 3</button>
+<button type="button" onclick="toggle_visibility(4)">Level 4</button>
+<button type="button" onclick="toggle_visibility(5)">Level 5</button>
+</div>
+
+<!--#region items -->
+<div class='level1'>
+- **Useful notes from a course in Harvard University** \
+<https://cs50.harvard.edu/web/2020/notes/2/>
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Define a class** \
+A `class` in Python is a template for a type of object. \
+Examples:
+```python
+# Example 1:
+class Point():
+    def __init__(self,input1,input2):
+        self.x = input1
+        self.y = input2
+
+p = Point(0,1)
+print(p.x)
+print(p.y)
+
+# Example 2:
+class Flight():
+    def __init__(self,capacity):
+        self.capacity = capacity
+        self.passengers = []
+
+    def add_passenger(self,name):
+        if self.open_seats()==0:
+            return False
+        self.passengers.append(name)
+        return True
+
+    def open_seats(self):
+        return self.capacity - len(self.passengers)
+
+flight = Flight(3)
+people = ["Harry", "Ron", "Hermione","Ginny"]
+
+for person in people:
+    if flight.add_passenger(person):
+        print(f"Added {person} to flight.")
+    else:
+        print(f"No available seats for {person}.")
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Define a decorator** \
+A `decorator` is a function that takes a function as an input and returns a modified version of that function as an output. \
+Example:
+```python
+def announce(f):
+    def wrapper():
+        print("About to run the function...")
+        f()
+        print("Done with the function.")
+    return wrapper
+
+@announce
+def hello():
+    print("Hello, world!")
+
+hello()
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Change a string's characters** \
+Python does not allow to change the characters of a string, but you can 
+work around it by transforming the string into a list, altering such list's
+elements and then merge them and transform it into a string. \
+Example:
+```python
+# String: string_1
+
+word = list(string_1)
+word[1] = "e"
+palabra = ""
+    for i in word:
+        palabra = palabra + str(i)
+
+# "palabra" is the new altered string.
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level3'>
+- **Simulate key press and key release** \
+<https://pynput.readthedocs.io/en/latest/keyboard.html>  
+Example:  
+```py
+from pynput.keyboard import Key, Controller
+import time
+time.sleep(2) # time to change my screen to another window
+
+keyboard = Controller()
+
+keyboard.press('a')
+time.sleep(1)
+keyboard.release('a')
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<!--#endregion-->

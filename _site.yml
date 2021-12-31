@@ -1,0 +1,39 @@
+name: "Programming and markup languages compilations"
+author: "Autor: Lucio Cornejo"
+date: "Last update:  `r format(Sys.time(),'%d / %m / %Y')`"
+output_dir: "."
+navbar:
+  title: "Included languages: "
+  # type: inverse
+  left:
+    - text: " R"
+      href: r.html
+      icon: fab fa-r-project
+    - text: " Python"
+      href: python.html
+      icon: fab fa-python # fa-studiovinari
+    - text: " Web development"
+      href: web-development.html
+      icon: fa-html5
+    - text: " Git"
+      href: git.html
+      icon: fa-github
+    - text: " LaTeX"
+      href: latex.html
+      icon: fa-file-pdf
+    - text: VS Code
+      href: vs-code.html
+      icon: fab fa-windows
+output:  
+  html_document:
+    css: my-style.css
+    highlight: pygments
+    theme: flatly # cosmo
+    self_contained: false # If it's true, xaringanExtra::embed_xaringan() does not work properly.
+    includes:
+      in_header: 
+        - icon-of-website.html
+      before_body: 
+        - fontawesome-personal-script.html
+      after_body:
+        - level-buttons.html
