@@ -1,4 +1,5 @@
 ---
+title: Web development
 output: html_document
 ---
 
@@ -7,13 +8,8 @@ xaringanExtra::use_panelset()
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-<div class="level-buttons" style="display: inline-flex;">
-<button type="button" onclick="toggle_visibility(1)">Level 1</button>
-<button type="button" onclick="toggle_visibility(2)">Level 2</button>
-<button type="button" onclick="toggle_visibility(3)">Level 3</button>
-<button type="button" onclick="toggle_visibility(4)">Level 4</button>
-<button type="button" onclick="toggle_visibility(5)">Level 5</button>
-</div>
+```{r, child="custom-buttons.Rmd"}
+```
 
 ## {.panelset}
 
@@ -64,13 +60,12 @@ There is up to 6 level headings, being `<h6> last heading level </h6>` the small
 
 <div class='level1'>
 - **Add links** \
-```text
+```md
 Example of link to website:
 <a href="https://google.com">Click here</a> 
 Where "a" stands for "anchor".
 
-Example of link to html file in same folder as 
-the one you'd be working with:
+Example of link to html file in same folder as the one you'd be working with:
 <a href="some-file.html">Click me</a>
 ```
 <p style="margin-bottom: -10px;">&nbsp;</p>
@@ -275,7 +270,7 @@ h1 {color: #EF99E3; }
 <div class='level2'>
 - **Inline styling of a heading** \
 Examples:
-```text
+```md
 <h1 style="color: blue; text-align: center;">Welcome to my page</h1>
 
 ## Section 2 {style="color:red;"}
@@ -685,7 +680,7 @@ body {
 <div class='level2'>
 - **Some selector examples** \
 Useful explanation from <https://stackoverflow.com/questions/19931351/css-selectors-difference-between-body-h1-body-h1-and-body-h1>:
-```text
+```md
 * body.h1 will select the body element if it has a class of h1.
     (ex. <body class='h1'>this one</body>)
 * body h1 will select all h1 elements in the body.
@@ -767,9 +762,9 @@ ul { list-style-image: url('icon_path.png'); }
 </div>
 
 <div class='level3'>
-- **Logical and operator use** \
+- **Logical _and_ operator use** \
 Example:
-```scss
+```css
 ul.tocify-header.list-group {
 	li { 
 		border-top: 1px solid black; 
@@ -816,7 +811,7 @@ Example:
 <div class='level2'>
 - **Automatic scrolling** \
 Example:
-```javascript
+```js
 // Choose some div (with overflow) to scroll
 let scrollable = document.querySelector('div');
         
@@ -995,7 +990,7 @@ let slicedArray = old_array.slice(0,n)
 </div>
 
 <div class='level2'>
-- **append() function** \
+- **append( ) function** \
 [Description](https://www.javascripttutorial.net/javascript-dom/javascript-append/): 
 _Use the parentNode.append() method to append a set of Node objects or DOMString objects after the last child node of the parentNode._ \
 Example:
@@ -1016,4 +1011,62 @@ title.append('texto')
 <p style="margin-bottom: -10px;">&nbsp;</p>
 </div>
 
+<div class='level2'>
+- **prepend( ) function** \
+It works similar to `append()`, but the inserted element(s) goes before the 
+**first child** of the parent Node to which such function is being applied.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Use R variables inside JavaScript** \
+Example:
+```{r, echo = FALSE, comment=NA}
+cat(paste0('```{r}\n','x <- 2\n','word <- "hello, "\n','```\n','<script>\n',  'function suma(a,b){\n',    'return a+b\n',  '}\n',  'console.log(suma(2,`r x+2`));\n',  'console.log("`r word`"+"world!");\n','</script>'))
+```
+
+Such _trick_ only works inside a **script** tag, **not inside js chunks**. \
+**Disclaimer:** This only works _once_ per knit; it does not make **Shiny** worthless.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Create an element** \
+Example:
+```js
+let boton = document.createElement('button');
+boton.type="button";
+boton.textContent="Show / Hide";
+
+document.querySelector('div.some-class').prepend(boton);
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **NextElementSibling** \
+Example:
+```js
+<div id="start"></div>
+Me
+<p>Hi</p>
+
+console.log(document.getElementById('start').nextSibling); // "\nMe\n"
+console.log(document.getElementById('start').nextSibling.nextSibling); // "<p>
+
+console.log(document.getElementById('start').nextElementSibling);// "<p>"
+```
+More info [here](https://stackoverflow.com/questions/31097016/whats-the-difference-between-nextelementsibling-vs-nextsibling).
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Set an action when the DOM content has loaded** \
+```js
+document.addEventListener('DOMContentLoaded', function (...) {
+    perform sth ...
+});
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
 <!--#endregion-->

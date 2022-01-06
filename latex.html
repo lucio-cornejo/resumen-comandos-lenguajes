@@ -11,7 +11,7 @@
 
 
 
-<title>latex.knit</title>
+<title>LaTeX</title>
 
 <script src="site_libs/header-attrs-2.11.4/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -385,10 +385,19 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">LaTeX</h1>
 
 </div>
 
 
+<div class="global-code-fold">
+<button type="button" onclick="show_code()">
+Show all of this webpage’s code sections
+</button>
+<button type="button" onclick="hide_code()">
+Hide all of this webpage’s code sections
+</button>
+</div>
 <div class="level-buttons" style="display: inline-flex;">
 <button type="button" onclick="toggle_visibility(1)">
 Level 1
@@ -452,8 +461,8 @@ Examples:</li>
 <li><strong>Math equations</strong><br />
 </li>
 </ul>
-<pre class="text"><code>\( ... \) for inline math expressions.
-\[ ... \] for display-style expressions.</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">\(</span> ... <span class="sc">\)</span> for inline math expressions.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">\[</span> ... <span class="sc">\]</span> for display-style expressions.</span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -1385,7 +1394,6 @@ Instead of using twice double <code>\mid</code>, try <code>\lVert x \rVert</code
     let level_5 = Array.prototype.slice.call(document.querySelectorAll('.level5'))
     let levels = [level_1,level_2,level_3,level_4,level_5]
 
-
     function toggle_visibility(number) {
         // Display items of all levels
         levels.forEach(level => level.forEach(item => item.style.display = 'block'))
@@ -1411,6 +1419,59 @@ Instead of using twice double <code>\mid</code>, try <code>\lVert x \rVert</code
     // Color code of output_chunks
     let output_chunks_code = document.querySelectorAll('pre code')
     output_chunks_code.forEach(element => element.parentNode.style.backgroundImage = " linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1))")
+
+</script>
+
+<script>
+    // Custom code_folding buttons, 
+    // because the default ones did not work properly .
+
+    // Pending to fix: 
+    //   - Make custom code_folding buttons appear for code blocks which are the output of an R chunk using the function cat() .
+    //   - Remove the necessity to use md instead of text for actual text code block, which I did for the code_folding button
+    //     to be created for such code blocks as well.
+
+    // Create "show/hide" buttons on each chunk code output
+    let code_chunks = document.querySelectorAll('pre.sourceCode');
+    code_chunks.forEach(code_chunk => {
+        let boton = document.createElement('button');
+        boton.type="button";
+        boton.textContent="Show / Hide";
+
+        code_chunk.parentNode.prepend(boton);
+        
+        boton.style.width = "100px";
+        boton.style.backgroundColor = "rgba(50,200,50,0.5)";
+        boton.style.backgroundImage = "linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5))";
+    });
+
+    // Toggle code folding via the buttons created
+    let code_folding_buttons = document.querySelectorAll('div.sourceCode button')
+
+    code_folding_buttons.forEach(boton => {
+        boton.addEventListener('click', () => {
+            let code_chunk_output = boton.nextElementSibling;   
+
+            if(code_chunk_output.style.display === 'block') {
+                code_chunk_output.style.display = "none";
+            } else {
+                code_chunk_output.style.display = 'block';
+            }
+        });
+    });
+
+    // On load, click all code_folding buttons to get rid
+    // of problem which requires an initial double click of
+    // code_folding buttons for them to work as intended .
+    document.addEventListener('DOMContentLoaded', function () { code_folding_buttons.forEach( boton => boton.click() ) });
+
+    // Buttons for global code folding of all buttons on current website
+    function show_code() {
+        code_folding_buttons.forEach( boton => boton.nextElementSibling.style.display = 'block');
+    }
+    function hide_code() {
+        code_folding_buttons.forEach( boton => boton.nextElementSibling.style.display = 'none');
+    }
 
 </script>
 

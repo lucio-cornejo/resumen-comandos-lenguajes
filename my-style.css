@@ -6,6 +6,10 @@
   font-size: 20px;
 }
 
+h1.title {
+  display: none;
+}
+
 ul:first-child {
   list-style-image: url("custom-list-marker.png");
 }
@@ -17,6 +21,23 @@ ul ul {
 code {
   background: #000000;
   color: #FFFFFF;
+}
+
+pre.sourceCode {
+  display: block;
+}
+
+div.global-code-fold {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+div.global-code-fold button {
+  padding: 10px;
+  margin: 10px 10px 10px 0;
+  background-color: rgba(50, 200, 50, 0.5);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
 }
 
 .level-buttons {

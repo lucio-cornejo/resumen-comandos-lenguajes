@@ -1,4 +1,5 @@
 ---
+title: "Git"
 output: html_document
 ---
 
@@ -7,13 +8,8 @@ xaringanExtra::use_panelset()
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-<div class="level-buttons" style="display: inline-flex;">
-<button type="button" onclick="toggle_visibility(1)">Level 1</button>
-<button type="button" onclick="toggle_visibility(2)">Level 2</button>
-<button type="button" onclick="toggle_visibility(3)">Level 3</button>
-<button type="button" onclick="toggle_visibility(4)">Level 4</button>
-<button type="button" onclick="toggle_visibility(5)">Level 5</button>
-</div>
+```{r, child="custom-buttons.Rmd"}
+```
 
 <!--#region items -->
 
@@ -165,7 +161,7 @@ It's pretty useful for open-source software.
 - **Replace master branch by another branch** \
 Explanation: <https://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch>.  
 Example:
-```text
+```md
 git checkout branch_two_name
 git merge -s ours master
 git checkout master
@@ -178,12 +174,23 @@ git merge branch_two_name
 - **Delete a branch** \
 Explanation: <https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely>.  
 Example:
-```text
+```md
 git branch -d branch_name
 # -d only works for deleting the branch if it has already been fully merged in its upstream branch.
 git branch -D branch_name
 # -D works for deleting the branch irrespective of its merged status.
 ```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Undo gi add before commit** \
+Example:
+```md
+git add example.pdf
+git reset example.pdf
+```  
+More info [here](https://stackoverflow.com/questions/348170/how-do-i-undo-git-add-before-commit "stackoverflow")
 <p style="margin-bottom: -10px;">&nbsp;</p>
 </div>
 

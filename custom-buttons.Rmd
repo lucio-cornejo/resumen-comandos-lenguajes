@@ -1,0 +1,16 @@
+---
+output: html_fragment
+---
+
+<div class="global-code-fold">
+<button type="button" onclick="show_code()">Show all of this webpage's code sections</button>
+<button type="button" onclick="hide_code()">Hide all of this webpage's code sections</button>
+</div>
+
+<div class="level-buttons" style="display: inline-flex;">
+<button type="button" onclick="toggle_visibility(1)">Level 1</button>
+<button type="button" onclick="toggle_visibility(2)">Level 2</button>
+<button type="button" onclick="toggle_visibility(3)">Level 3</button>
+<button type="button" onclick="toggle_visibility(4)">Level 4</button>
+<button type="button" onclick="toggle_visibility(5)">Level 5</button>
+</div>

@@ -11,15 +11,15 @@
 
 
 
-<title>web-development.knit</title>
+<title>Web development</title>
 
-<script src="web-development_files/header-attrs-2.11.4/header-attrs.js"></script>
-<script src="web-development_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.11.4/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="web-development_files/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="web-development_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="web-development_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="web-development_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <style>h1 {font-size: 34px;}
        h1.title {font-size: 38px;}
        h2 {font-size: 30px;}
@@ -29,11 +29,11 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="web-development_files/navigation-1.1/tabsets.js"></script>
-<link href="web-development_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
-<script src="web-development_files/panelset-0.2.6/panelset.js"></script>
-<link href="web-development_files/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="web-development_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+<script src="site_libs/panelset-0.2.6/panelset.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" href="favicon.ico"/>
 
 <style type="text/css">
@@ -385,10 +385,19 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Web development</h1>
 
 </div>
 
 
+<div class="global-code-fold">
+<button type="button" onclick="show_code()">
+Show all of this webpage’s code sections
+</button>
+<button type="button" onclick="hide_code()">
+Hide all of this webpage’s code sections
+</button>
+</div>
 <div class="level-buttons" style="display: inline-flex;">
 <button type="button" onclick="toggle_visibility(1)">
 Level 1
@@ -464,13 +473,12 @@ Example:</li>
 <li><strong>Add links</strong><br />
 </li>
 </ul>
-<pre class="text"><code>Example of link to website:
-&lt;a href=&quot;https://google.com&quot;&gt;Click here&lt;/a&gt; 
-Where &quot;a&quot; stands for &quot;anchor&quot;.
-
-Example of link to html file in same folder as 
-the one you&#39;d be working with:
-&lt;a href=&quot;some-file.html&quot;&gt;Click me&lt;/a&gt;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="an">Example of link to website:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;https://google.com&quot;</span><span class="kw">&gt;</span>Click here<span class="kw">&lt;/a&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Where &quot;a&quot; stands for &quot;anchor&quot;.</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Example of link to html file in same folder as the one you&#39;d be working with:</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;some-file.html&quot;</span><span class="kw">&gt;</span>Click me<span class="kw">&lt;/a&gt;</span></span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -693,11 +701,11 @@ Example of CSS chunk:<br />
 <li><strong>Inline styling of a heading</strong><br />
 Examples:</li>
 </ul>
-<pre class="text"><code>&lt;h1 style=&quot;color: blue; text-align: center;&quot;&gt;Welcome to my page&lt;/h1&gt;
-
-## Section 2 {style=&quot;color:red;&quot;}
-
-### Section 3 {onclick=&quot;alert(&#39;wow&#39;)&quot;}</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;h1</span> <span class="er">style</span><span class="ot">=</span><span class="st">&quot;color: blue; text-align: center;&quot;</span><span class="kw">&gt;</span>Welcome to my page<span class="kw">&lt;/h1&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Section 2 {style=&quot;color:red;&quot;}</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### Section 3 {onclick=&quot;alert(&#39;wow&#39;)&quot;}</span></span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -1125,14 +1133,14 @@ Example:</li>
 <li><strong>Some selector examples</strong><br />
 Useful explanation from <a href="https://stackoverflow.com/questions/19931351/css-selectors-difference-between-body-h1-body-h1-and-body-h1" class="uri">https://stackoverflow.com/questions/19931351/css-selectors-difference-between-body-h1-body-h1-and-body-h1</a>:</li>
 </ul>
-<pre class="text"><code>* body.h1 will select the body element if it has a class of h1.
-    (ex. &lt;body class=&#39;h1&#39;&gt;this one&lt;/body&gt;)
-* body h1 will select all h1 elements in the body.
-    (ex. &lt;body&gt;&lt;h1&gt;this one&lt;/h1&gt;&lt;/body&gt;)
-    This is redundant in well-formed HTML, it will basically do the same thing as h1, 
-    because the only place an h1 element can be (if your HTML is well-formed) is in the body)
-* body .h1 will select all the elements that have the h1 class in the body.
-    (ex. &lt;body&gt;&lt;div class=&#39;h1&#39;&gt;this one&lt;/div&gt;&lt;/body&gt;)</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>body.h1 will select the body element if it has a class of h1.</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    (ex. <span class="kw">&lt;body</span> <span class="er">class</span><span class="ot">=</span><span class="st">&#39;h1&#39;</span><span class="kw">&gt;</span>this one<span class="kw">&lt;/body&gt;</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>body h1 will select all h1 elements in the body.</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    (ex. <span class="kw">&lt;body&gt;&lt;h1&gt;</span>this one<span class="kw">&lt;/h1&gt;&lt;/body&gt;</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    This is redundant in well-formed HTML, it will basically do the same thing as h1, </span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    because the only place an h1 element can be (if your HTML is well-formed) is in the body)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>body .h1 will select all the elements that have the h1 class in the body.</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    (ex. <span class="kw">&lt;body&gt;&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&#39;h1&#39;</span><span class="kw">&gt;</span>this one<span class="kw">&lt;/div&gt;&lt;/body&gt;</span>)</span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -1216,16 +1224,16 @@ This option can be very useful for long math equations displayed on a HTML docum
 </div>
 <div class="level3">
 <ul>
-<li><strong>Logical and operator use</strong><br />
+<li><strong>Logical <em>and</em> operator use</strong><br />
 Example:</li>
 </ul>
-<pre class="scss"><code>ul.tocify-header.list-group {
-    li { 
-        border-top: 1px solid black; 
-        height: $li-desdendants-height vh;
-        line-height: $li-desdendants-height*0.575vh;
-    }
-    &amp;:first-child { margin-top: 15px; }</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>ul<span class="fu">.tocify-header.list-group</span> {</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    li { </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">border-top</span>: <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">black</span><span class="op">;</span> </span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">height</span>: $li-desdendants-height vh<span class="op">;</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">line-height</span>: $li-desdendants-height*<span class="dv">0.575</span><span class="dt">vh</span><span class="op">;</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    &amp;<span class="in">:first-child</span> { <span class="kw">margin-top</span>: <span class="dv">15</span><span class="dt">px</span><span class="op">;</span> }</span></code></pre></div>
 <p>The <code>&amp;</code> symbol sets the creation of its CSS conversion (assuming $li-desdendants-height = 10) like so:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>ul<span class="fu">.tocify-header.list-group</span> li {</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-top</span>: <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">black</span><span class="op">;</span> </span>
@@ -1266,7 +1274,7 @@ Example:</li>
 <li><strong>Automatic scrolling</strong><br />
 Example:</li>
 </ul>
-<div class="sourceCode" id="cb38"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Choose some div (with overflow) to scroll</span></span>
+<div class="sourceCode" id="cb38"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Choose some div (with overflow) to scroll</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> scrollable <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Define the standard sleep() function</span></span>
@@ -1447,7 +1455,7 @@ Example using JQuery:</li>
 </div>
 <div class="level2">
 <ul>
-<li><strong>append() function</strong><br />
+<li><strong>append( ) function</strong><br />
 <a href="https://www.javascripttutorial.net/javascript-dom/javascript-append/">Description</a>: <em>Use the parentNode.append() method to append a set of Node objects or DOMString objects after the last child node of the parentNode.</em><br />
 Example:</li>
 </ul>
@@ -1467,6 +1475,81 @@ Example:</li>
  
 </p>
 </div>
+<div class="level2">
+<ul>
+<li><strong>prepend( ) function</strong><br />
+It works similar to <code>append()</code>, but the inserted element(s) goes before the <strong>first child</strong> of the parent Node to which such function is being applied.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Use R variables inside JavaScript</strong><br />
+Example:</li>
+</ul>
+<pre><code>```{r}
+x &lt;- 2
+word &lt;- &quot;hello, &quot;
+```
+&lt;script&gt;
+function suma(a,b){
+return a+b
+}
+console.log(suma(2,`r x+2`));
+console.log(&quot;`r word`&quot;+&quot;world!&quot;);
+&lt;/script&gt;</code></pre>
+Such <em>trick</em> only works inside a <strong>script</strong> tag, <strong>not inside js chunks</strong>.<br />
+<strong>Disclaimer:</strong> This only works <em>once</em> per knit; it does not make <strong>Shiny</strong> worthless.
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Create an element</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> boton <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;button&#39;</span>)<span class="op">;</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>boton<span class="op">.</span><span class="at">type</span><span class="op">=</span><span class="st">&quot;button&quot;</span><span class="op">;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>boton<span class="op">.</span><span class="at">textContent</span><span class="op">=</span><span class="st">&quot;Show / Hide&quot;</span><span class="op">;</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;div.some-class&#39;</span>)<span class="op">.</span><span class="fu">prepend</span>(boton)<span class="op">;</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>NextElementSibling</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>div id<span class="op">=</span><span class="st">&quot;start&quot;</span><span class="op">&gt;&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>Me</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>Hi<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;start&#39;</span>)<span class="op">.</span><span class="at">nextSibling</span>)<span class="op">;</span> <span class="co">// &quot;\nMe\n&quot;</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;start&#39;</span>)<span class="op">.</span><span class="at">nextSibling</span><span class="op">.</span><span class="at">nextSibling</span>)<span class="op">;</span> <span class="co">// &quot;&lt;p&gt;</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;start&#39;</span>)<span class="op">.</span><span class="at">nextElementSibling</span>)<span class="op">;</span><span class="co">// &quot;&lt;p&gt;&quot;</span></span></code></pre></div>
+More info <a href="https://stackoverflow.com/questions/31097016/whats-the-difference-between-nextelementsibling-vs-nextsibling">here</a>.
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Set an action when the DOM content has loaded</strong><br />
+</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;DOMContentLoaded&#39;</span><span class="op">,</span> <span class="kw">function</span> (<span class="op">...</span>) {</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    perform sth <span class="op">...</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
 <!--#endregion-->
 </div>
 </div>
@@ -1479,7 +1562,6 @@ Example:</li>
     let level_4 = Array.prototype.slice.call(document.querySelectorAll('.level4'))
     let level_5 = Array.prototype.slice.call(document.querySelectorAll('.level5'))
     let levels = [level_1,level_2,level_3,level_4,level_5]
-
 
     function toggle_visibility(number) {
         // Display items of all levels
@@ -1506,6 +1588,59 @@ Example:</li>
     // Color code of output_chunks
     let output_chunks_code = document.querySelectorAll('pre code')
     output_chunks_code.forEach(element => element.parentNode.style.backgroundImage = " linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1))")
+
+</script>
+
+<script>
+    // Custom code_folding buttons, 
+    // because the default ones did not work properly .
+
+    // Pending to fix: 
+    //   - Make custom code_folding buttons appear for code blocks which are the output of an R chunk using the function cat() .
+    //   - Remove the necessity to use md instead of text for actual text code block, which I did for the code_folding button
+    //     to be created for such code blocks as well.
+
+    // Create "show/hide" buttons on each chunk code output
+    let code_chunks = document.querySelectorAll('pre.sourceCode');
+    code_chunks.forEach(code_chunk => {
+        let boton = document.createElement('button');
+        boton.type="button";
+        boton.textContent="Show / Hide";
+
+        code_chunk.parentNode.prepend(boton);
+        
+        boton.style.width = "100px";
+        boton.style.backgroundColor = "rgba(50,200,50,0.5)";
+        boton.style.backgroundImage = "linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5))";
+    });
+
+    // Toggle code folding via the buttons created
+    let code_folding_buttons = document.querySelectorAll('div.sourceCode button')
+
+    code_folding_buttons.forEach(boton => {
+        boton.addEventListener('click', () => {
+            let code_chunk_output = boton.nextElementSibling;   
+
+            if(code_chunk_output.style.display === 'block') {
+                code_chunk_output.style.display = "none";
+            } else {
+                code_chunk_output.style.display = 'block';
+            }
+        });
+    });
+
+    // On load, click all code_folding buttons to get rid
+    // of problem which requires an initial double click of
+    // code_folding buttons for them to work as intended .
+    document.addEventListener('DOMContentLoaded', function () { code_folding_buttons.forEach( boton => boton.click() ) });
+
+    // Buttons for global code folding of all buttons on current website
+    function show_code() {
+        code_folding_buttons.forEach( boton => boton.nextElementSibling.style.display = 'block');
+    }
+    function hide_code() {
+        code_folding_buttons.forEach( boton => boton.nextElementSibling.style.display = 'none');
+    }
 
 </script>
 

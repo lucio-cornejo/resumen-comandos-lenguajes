@@ -11,7 +11,7 @@
 
 
 
-<title>git.knit</title>
+<title>Git</title>
 
 <script src="site_libs/header-attrs-2.11.4/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -385,10 +385,19 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Git</h1>
 
 </div>
 
 
+<div class="global-code-fold">
+<button type="button" onclick="show_code()">
+Show all of this webpage’s code sections
+</button>
+<button type="button" onclick="hide_code()">
+Hide all of this webpage’s code sections
+</button>
+</div>
 <div class="level-buttons" style="display: inline-flex;">
 <button type="button" onclick="toggle_visibility(1)">
 Level 1
@@ -598,10 +607,10 @@ It’s pretty useful for open-source software.
 Explanation: <a href="https://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch" class="uri">https://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch</a>.<br />
 Example:</li>
 </ul>
-<pre class="text"><code>git checkout branch_two_name
-git merge -s ours master
-git checkout master
-git merge branch_two_name</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git checkout branch_two_name</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>git merge -s ours master</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>git checkout master</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>git merge branch_two_name</span></code></pre></div>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -612,10 +621,22 @@ git merge branch_two_name</code></pre>
 Explanation: <a href="https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely" class="uri">https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely</a>.<br />
 Example:</li>
 </ul>
-<pre class="text"><code>git branch -d branch_name
-# -d only works for deleting the branch if it has already been fully merged in its upstream branch.
-git branch -D branch_name
-# -D works for deleting the branch irrespective of its merged status.</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git branch -d branch_name</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu"># -d only works for deleting the branch if it has already been fully merged in its upstream branch.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>git branch -D branch_name</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu"># -D works for deleting the branch irrespective of its merged status.</span></span></code></pre></div>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Undo gi add before commit</strong><br />
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git add example.pdf</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>git reset example.pdf</span></code></pre></div>
+More info <a href="https://stackoverflow.com/questions/348170/how-do-i-undo-git-add-before-commit" title="stackoverflow">here</a>
 <p style="margin-bottom: -10px;">
  
 </p>
@@ -630,7 +651,6 @@ git branch -D branch_name
     let level_4 = Array.prototype.slice.call(document.querySelectorAll('.level4'))
     let level_5 = Array.prototype.slice.call(document.querySelectorAll('.level5'))
     let levels = [level_1,level_2,level_3,level_4,level_5]
-
 
     function toggle_visibility(number) {
         // Display items of all levels
@@ -657,6 +677,59 @@ git branch -D branch_name
     // Color code of output_chunks
     let output_chunks_code = document.querySelectorAll('pre code')
     output_chunks_code.forEach(element => element.parentNode.style.backgroundImage = " linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.1))")
+
+</script>
+
+<script>
+    // Custom code_folding buttons, 
+    // because the default ones did not work properly .
+
+    // Pending to fix: 
+    //   - Make custom code_folding buttons appear for code blocks which are the output of an R chunk using the function cat() .
+    //   - Remove the necessity to use md instead of text for actual text code block, which I did for the code_folding button
+    //     to be created for such code blocks as well.
+
+    // Create "show/hide" buttons on each chunk code output
+    let code_chunks = document.querySelectorAll('pre.sourceCode');
+    code_chunks.forEach(code_chunk => {
+        let boton = document.createElement('button');
+        boton.type="button";
+        boton.textContent="Show / Hide";
+
+        code_chunk.parentNode.prepend(boton);
+        
+        boton.style.width = "100px";
+        boton.style.backgroundColor = "rgba(50,200,50,0.5)";
+        boton.style.backgroundImage = "linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5))";
+    });
+
+    // Toggle code folding via the buttons created
+    let code_folding_buttons = document.querySelectorAll('div.sourceCode button')
+
+    code_folding_buttons.forEach(boton => {
+        boton.addEventListener('click', () => {
+            let code_chunk_output = boton.nextElementSibling;   
+
+            if(code_chunk_output.style.display === 'block') {
+                code_chunk_output.style.display = "none";
+            } else {
+                code_chunk_output.style.display = 'block';
+            }
+        });
+    });
+
+    // On load, click all code_folding buttons to get rid
+    // of problem which requires an initial double click of
+    // code_folding buttons for them to work as intended .
+    document.addEventListener('DOMContentLoaded', function () { code_folding_buttons.forEach( boton => boton.click() ) });
+
+    // Buttons for global code folding of all buttons on current website
+    function show_code() {
+        code_folding_buttons.forEach( boton => boton.nextElementSibling.style.display = 'block');
+    }
+    function hide_code() {
+        code_folding_buttons.forEach( boton => boton.nextElementSibling.style.display = 'none');
+    }
 
 </script>
 
