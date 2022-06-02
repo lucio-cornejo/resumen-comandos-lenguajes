@@ -1,0 +1,43 @@
+---
+title: "Microsoft Excel"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+xaringanExtra::use_panelset()
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, child="custom-buttons.Rmd"}
+```
+
+<div class='level1'>
+- **** \
+ctrl+shift+someDirectonArrow
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **autofit table by column** \
+alt+o+hf+r (creo, check)
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **** \
+data analysis pack add in
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **select all data in a table** \
+click some cell of a table and press ctrl+a.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **convert a data set to table** \
+ctrl+t
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+

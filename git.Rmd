@@ -184,13 +184,21 @@ git branch -D branch_name
 </div>
 
 <div class='level2'>
-- **Undo gi add before commit** \
+- **Undo git add before commit** \
 Example:
 ```md
 git add example.pdf
 git reset example.pdf
 ```  
 More info [here](https://stackoverflow.com/questions/348170/how-do-i-undo-git-add-before-commit "stackoverflow")
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Undo last commit** \
+Type `git reset HEAD~` into the appropriate terminal.<br>
+More info
+[here](https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git).
 <p style="margin-bottom: -10px;">&nbsp;</p>
 </div>
 

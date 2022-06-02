@@ -13,7 +13,7 @@
 
 <title>Git</title>
 
-<script src="site_libs/header-attrs-2.11.4/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -419,7 +419,8 @@ Level 5
 <div class="level3">
 <ul>
 <li><strong>Useful summary from Harvard University</strong><br />
-<a href="https://cs50.harvard.edu/web/2020/notes/1/" class="uri">https://cs50.harvard.edu/web/2020/notes/1/</a>
+<a href="https://cs50.harvard.edu/web/2020/notes/1/"
+class="uri">https://cs50.harvard.edu/web/2020/notes/1/</a>
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -431,7 +432,8 @@ Level 5
 Copy the contents of a git repository into your computer.<br />
 Command:<br />
 <code>git clone url-of-repository</code><br />
-If the repository is private, it’s better to use the following command:<br />
+If the repository is private, it’s better to use the following
+command:<br />
 <code>git clone https://username@github.com/username/repo_name</code>
 <p style="margin-bottom: -10px;">
  
@@ -441,9 +443,11 @@ If the repository is private, it’s better to use the following command:<br />
 <div class="level1">
 <ul>
 <li><strong>Command commit</strong><br />
-It saves the current state of all the files, folders and assets in the repository, that have been <code>added</code>.<br />
+It saves the current state of all the files, folders and assets in the
+repository, that have been <code>added</code>.<br />
 Structure: <code>git commit -m "message"</code><br />
-The ‘message’ section can be useful to keep track of which changes, or a summary of them, were made to the project.
+The ‘message’ section can be useful to keep track of which changes, or a
+summary of them, were made to the project.
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -452,8 +456,10 @@ The ‘message’ section can be useful to keep track of which changes, or a sum
 <div class="level1">
 <ul>
 <li><strong>Command add</strong><br />
-It tells Git to add a file as one to track the next time we use the <code>commit</code> command.<br />
-Use <code>git add .</code> to add all the changes in the repository that you’ve made.
+It tells Git to add a file as one to track the next time we use the
+<code>commit</code> command.<br />
+Use <code>git add .</code> to add all the changes in the repository that
+you’ve made.
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -462,7 +468,8 @@ Use <code>git add .</code> to add all the changes in the repository that you’v
 <div class="level1">
 <ul>
 <li><strong>Command status</strong><br />
-Useful if you need to compare the local version of your repository, with the one on GitHub.
+Useful if you need to compare the local version of your repository, with
+the one on GitHub.
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -471,7 +478,9 @@ Useful if you need to compare the local version of your repository, with the one
 <div class="level1">
 <ul>
 <li><strong>Command push</strong><br />
-It pushes to GitHub the local changes to the repository so that the online version of the repository has the same contents as the local version on your computer.
+It pushes to GitHub the local changes to the repository so that the
+online version of the repository has the same contents as the local
+version on your computer.
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -501,7 +510,8 @@ You can add and commit a file via one command via:<br />
 <div class="level1">
 <ul>
 <li><strong>Command pull</strong><br />
-It pulls the most recent changes down from a repository in GitHub, into the local version of such repository.
+It pulls the most recent changes down from a repository in GitHub, into
+the local version of such repository.
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -521,8 +531,11 @@ It shows the changes made in each commit, by who and when.
 <li><strong>Go back to last commit</strong><br />
 Example:<br />
 <code>git reset --hard</code><br />
-<strong>Undo</strong> local file changes and <strong>keep</strong> your last commmit:<br />
-<a href="https://stackoverflow.com/questions/4965639/rollback-to-last-git-commit" class="uri">https://stackoverflow.com/questions/4965639/rollback-to-last-git-commit</a>
+<strong>Undo</strong> local file changes and <strong>keep</strong> your
+last commmit:<br />
+<a
+href="https://stackoverflow.com/questions/4965639/rollback-to-last-git-commit"
+class="uri">https://stackoverflow.com/questions/4965639/rollback-to-last-git-commit</a>
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -531,7 +544,8 @@ Example:<br />
 <div class="level2">
 <ul>
 <li><strong>Command branch</strong><br />
-It shows you which branch you are currently on (with *) and which branches exist in my repository.
+It shows you which branch you are currently on (with *) and which
+branches exist in my repository.
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -541,7 +555,8 @@ It shows you which branch you are currently on (with *) and which branches exist
 <ul>
 <li><strong>Create a branch</strong><br />
 <code>git checkout -b name_of_branch</code>.<br />
-Now, the changes made will not affect the master branch, as long as we stay on this branch.
+Now, the changes made will not affect the master branch, as long as we
+stay on this branch.
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -552,7 +567,6 @@ Now, the changes made will not affect the master branch, as long as we stay on t
 <li><strong>Change branch</strong><br />
 Return to the master branch:<br />
 <code>git checkout master</code><br />
-
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -564,7 +578,9 @@ Return to the master branch:<br />
 Say you have two branches: master and style.<br />
 If you are currently in the master branch, then execute:<br />
 <code>git merge branch_name</code><br />
-You may have to deal with merge conflicts, but, if you avoid making distinct branch modifications to the same line of code, the merge may work out.
+You may have to deal with merge conflicts, but, if you avoid making
+distinct branch modifications to the same line of code, the merge may
+work out.
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -574,9 +590,12 @@ You may have to deal with merge conflicts, but, if you avoid making distinct bra
 <ul>
 <li><strong>GitHub pages</strong><br />
 You can create your own website using GitHub.<br />
-A simple example is to create a repository named <code>your_username.github.io</code> and add a file named <code>index.html</code> of the type:</li>
+A simple example is to create a repository named
+<code>your_username.github.io</code> and add a file named
+<code>index.html</code> of the type:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html</span> <span class="er">lang</span><span class="ot">=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;title&gt;</span></span>
@@ -594,7 +613,9 @@ A simple example is to create a repository named <code>your_username.github.io</
 <div class="level1">
 <ul>
 <li><strong>Fork</strong><br />
-It’s the GitHub functionality that allows you to copy the contents of some repository so that you can push and pull from its new copy as if itw as your own.<br />
+It’s the GitHub functionality that allows you to copy the contents of
+some repository so that you can push and pull from its new copy as if
+itw as your own.<br />
 It’s pretty useful for open-source software.
 <p style="margin-bottom: -10px;">
  
@@ -604,7 +625,9 @@ It’s pretty useful for open-source software.
 <div class="level2">
 <ul>
 <li><strong>Replace master branch by another branch</strong><br />
-Explanation: <a href="https://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch" class="uri">https://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch</a>.<br />
+Explanation: <a
+href="https://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch"
+class="uri">https://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch</a>.<br />
 Example:</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git checkout branch_two_name</span>
@@ -618,7 +641,9 @@ Example:</li>
 <div class="level2">
 <ul>
 <li><strong>Delete a branch</strong><br />
-Explanation: <a href="https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely" class="uri">https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely</a>.<br />
+Explanation: <a
+href="https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely"
+class="uri">https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely</a>.<br />
 Example:</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git branch -d branch_name</span>
@@ -631,15 +656,28 @@ Example:</li>
 </div>
 <div class="level2">
 <ul>
-<li><strong>Undo gi add before commit</strong><br />
+<li><strong>Undo git add before commit</strong><br />
 Example:</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git add example.pdf</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>git reset example.pdf</span></code></pre></div>
-More info <a href="https://stackoverflow.com/questions/348170/how-do-i-undo-git-add-before-commit" title="stackoverflow">here</a>
+More info <a
+href="https://stackoverflow.com/questions/348170/how-do-i-undo-git-add-before-commit"
+title="stackoverflow">here</a>
 <p style="margin-bottom: -10px;">
  
 </p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Undo last commit</strong><br />
+Type <code>git reset HEAD~</code> into the appropriate terminal.<br>
+More info <a
+href="https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git">here</a>.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
 </div>
 <!--#endregion-->
 

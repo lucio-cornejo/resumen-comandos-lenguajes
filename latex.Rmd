@@ -942,5 +942,16 @@ Instead of using twice double `\mid`, try `\lVert x \rVert` for \( \lVert x \rVe
 <p style="margin-bottom: -10px;">&nbsp;</p>
 </div>
 
+<div class='level2'>
+- **Insert an arrow with text on top and/or bottom** \
+Example:
+```latex
+A\xleftarrow{n+\mu-1}B\xrightarrow[T]{n\pm i-1}C.
+```
+Source: <https://web.archive.org/web/20180705220556/http://www.stack.nl:80/~jwk/latex/examples/node6.html>
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
 <!--#endregion-->
 

@@ -11,19 +11,20 @@ knitr::opts_chunk$set(echo = FALSE)
 ```{r, child="custom-buttons.Rmd"}
 ```
 
+With respecto to `R`, for now please refer to this other summaries I've created:
+
+- <https://rpubs.com/Topological_Parallax/848149>
+- <https://rpubs.com/Topological_Parallax/848164>
+
 ## {.panelset}
 
 ### General
 
-```{r}
-x <- 2
-x+2
-```
+lorem ipsum
+
 ### R Markdown
 
-```{r}
-plot(pressure)
-```
+lorem ipsum
 
 ### Bookdown
 

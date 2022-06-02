@@ -13,7 +13,7 @@
 
 <title>Python</title>
 
-<script src="site_libs/header-attrs-2.11.4/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -418,8 +418,10 @@ Level 5
 <!--#region items -->
 <div class="level1">
 <ul>
-<li><strong>Useful notes from a course in Harvard University</strong><br />
-<a href="https://cs50.harvard.edu/web/2020/notes/2/" class="uri">https://cs50.harvard.edu/web/2020/notes/2/</a>
+<li><strong>Useful notes from a course in Harvard
+University</strong><br />
+<a href="https://cs50.harvard.edu/web/2020/notes/2/"
+class="uri">https://cs50.harvard.edu/web/2020/notes/2/</a>
 <p style="margin-bottom: -10px;">
  
 </p></li>
@@ -431,7 +433,8 @@ Level 5
 A <code>class</code> in Python is a template for a type of object.<br />
 Examples:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 1:</span></span>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 1:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point():</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,input1,input2):</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> input1</span>
@@ -471,10 +474,12 @@ Examples:</li>
 <div class="level1">
 <ul>
 <li><strong>Define a decorator</strong><br />
-A <code>decorator</code> is a function that takes a function as an input and returns a modified version of that function as an output.<br />
+A <code>decorator</code> is a function that takes a function as an input
+and returns a modified version of that function as an output.<br />
 Example:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> announce(f):</span>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> announce(f):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> wrapper():</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;About to run the function...&quot;</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        f()</span>
@@ -493,10 +498,14 @@ Example:</li>
 <div class="level1">
 <ul>
 <li><strong>Change a string’s characters</strong><br />
-Python does not allow to change the characters of a string, but you can work around it by transforming the string into a list, altering such list’s elements and then merge them and transform it into a string.<br />
+Python does not allow to change the characters of a string, but you can
+work around it by transforming the string into a list, altering such
+list’s elements and then merge them and transform it into a
+string.<br />
 Example:</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># String: string_1</span></span>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># String: string_1</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>word <span class="op">=</span> <span class="bu">list</span>(string_1)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>word[<span class="dv">1</span>] <span class="op">=</span> <span class="st">&quot;e&quot;</span></span>
@@ -512,11 +521,13 @@ Example:</li>
 <div class="level3">
 <ul>
 <li><strong>Simulate key press and key release</strong><br />
-<a href="https://pynput.readthedocs.io/en/latest/keyboard.html" class="uri">https://pynput.readthedocs.io/en/latest/keyboard.html</a><br />
+<a href="https://pynput.readthedocs.io/en/latest/keyboard.html"
+class="uri">https://pynput.readthedocs.io/en/latest/keyboard.html</a><br />
 Example:<br />
 </li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pynput.keyboard <span class="im">import</span> Key, Controller</span>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pynput.keyboard <span class="im">import</span> Key, Controller</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>time.sleep(<span class="dv">2</span>) <span class="co"># time to change my screen to another window</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>

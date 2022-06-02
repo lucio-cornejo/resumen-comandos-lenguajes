@@ -1,0 +1,631 @@
+
+
+
+<div id="javascript" class="section level3">
+<h3>JavaScript</h3>
+<div class="level2">
+<ul>
+<li><strong>Automatic scrolling</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>// Choose some div (with overflow) to scroll
+let scrollable = document.querySelector(&#39;div&#39;);
+        
+// Define the standard sleep() function
+function sleep(miliseconds) {
+return new Promise(resolve =&gt; setTimeout(resolve, miliseconds));
+}
+
+let scrolling_time_in_miliseconds = 2000;
+let scrolling_transition_animation_precision = 100;
+
+async function initiateScrolling(){
+// Incrementally scroll little by little many times in order to simulate a continuous transition
+    for(var i=0; i&lt;scrolling_transition_animation_precision; i++){
+        await sleep(scrolling_time_in_miliseconds/scrolling_transition_animation_precision);
+        scrollable.scrollBy(scrollable.scrollWidth/scrolling_transition_animation_precision,0);
+    }
+    
+    // Wait one second and reset the scroll back (smoothly, continuously) to its starting position
+    await sleep(1000);
+    scrollable.scrollBy({
+        left: -scrollable.scrollWidth,
+        behavior: &#39;smooth&#39; 
+    });
+}
+
+// Perform the automatic scrolling
+initiateScrolling();</code></pre>
+For more information, visit <a
+href="https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollBy"
+class="uri">https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollBy</a>
+.
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Trigger action on certain button(s) after clicking some
+button</strong><br />
+Example:</li>
+</ul>
+<pre class="html"><code>&lt;input type=&quot;button&quot; value=&quot;whatever&quot; class=&quot;activar&quot; onclick=&quot;sth()&quot;&gt;&lt;/input&gt;
+&lt;input type=&quot;button&quot; value=&quot;activation&quot; onclick=&quot;gooo()&quot;&gt;&lt;/input&gt;
+
+&lt;script&gt;   
+function gooo(){
+    $(&#39;.whatever&#39;).trigger(&#39;click&#39;);
+}
+function sth() {
+    // content ...
+}
+&lt;/script&gt;</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Get characters of a string</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>let palabra = &quot;hola&quot;;
+alert(palabra.charAt(0)); // Displays the word &quot;h&quot;.</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Remove characters from a string</strong><br />
+This method involves turning a string into array of its characters,
+removing some elements of such array and then join the characters left
+into a new string.<br />
+Example:</li>
+</ul>
+<pre class="js"><code>let t = document.querySelector(&#39;div&#39;);
+// t is a div which contains some text
+
+//  Convert string into array of characters
+let texto = t[&quot;textContent&quot;].split(&#39;&#39;); 
+
+// Remove the first two characters of the string
+texto.splice(0,1); texto.splice(0,1);
+
+// Remove the last two characters of the string
+texto.splice(texto.length - 1 ,1); texto.splice(texto.length - 1,1);
+
+// Set the initial text to its new value after joining the characters into a new string
+t[&quot;textContent&quot;] = texto.join(&#39;&#39;);</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Play a sound multiple times</strong><br />
+When you use a function like “click this and something will sound”, as
+it’s common with virtual pianos, there may be a problem where, after
+click the <em>sound button</em>, you have to wait till the sound stops
+in order for the next button click to activate the same sound.<br />
+The problem can be fixed using <code>currentTime = 0;</code> right
+before <code>play();</code>. Example:</li>
+</ul>
+<pre class="html"><code>&lt;audio id=&quot;nota&quot; preload=&quot;auto&quot;&gt;&lt;source src=&quot;musical_notes/C4.mp3&quot;&gt;&lt;/source&gt;&lt;/audio&gt;
+&lt;div id=&quot;sonido&quot;&gt;
+&lt;p&gt;Click me to play a sound&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    let audio;
+document.getElementById(sonido).addEventListener(&#39;click&#39;,function() {
+    audio = document.getElementById(nota);
+    audio.currentTime = 0;
+    audio.play();
+}
+&lt;/script&gt;</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Convert a HTML collection into an array</strong><br />
+Most efficient way:<br />
+</li>
+</ul>
+<pre class="js"><code>let converted_array = Array.prototype.slice.call( some_html_collection );</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Set a time delay</strong><br />
+Example:</li>
+</ul>
+<pre class="html"><code>&lt;body&gt;
+    &lt;button onclick=&quot;doIt()&quot;&gt;Do it&lt;/button&gt;
+    &lt;script&gt;
+        function sleep(ms) {
+            return new Promise(resolve =&gt; setTimeout(resolve, ms));
+        }
+        async function doIt(){
+            for(var i=0;i&lt;18;i++){
+                console.log(i.toString())
+                await sleep(100);
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Get IP of webpage visitor</strong><br />
+Example using JQuery:</li>
+</ul>
+<pre class="js"><code>// IPs of the visitors to this website for which
+// we grant permission to see the content of the site.
+const IP_exceptions = [&#39;161.123.234.45&#39;,&#39;161.133.243.54&#39;]; 
+
+let pagina = document.querySelector(&#39;html&#39;);
+
+$.getJSON(&quot;https://jsonip.com/?callback=?&quot;, function (data) {
+if( !( IP_exceptions.includes(data[&#39;ip&#39;]) )) { 
+    // IP of user does not belong to someone granted permission to see site,
+    // so we delete the content of the website
+    pagina.remove();
+} else {
+    pagina.style.visibility = &#39;visible&#39;; 
+    // this webpage had &#39;hidden&#39; visibility when loaded
+}
+});</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Get first n elements of an array</strong><br />
+</li>
+</ul>
+<pre class="js"><code>let slicedArray = old_array.slice(0,n)</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>append( ) function</strong><br />
+<a
+href="https://www.javascripttutorial.net/javascript-dom/javascript-append/">Description</a>:
+<em>Use the parentNode.append() method to append a set of Node objects
+or DOMString objects after the last child node of the
+parentNode.</em><br />
+Example:</li>
+</ul>
+<pre class="js"><code>let title = document.querySelector(&#39;h2&#39;);
+let langs = [&#39;html&#39;,&#39;css&#39;,&#39;javascript&#39;];
+
+let items = langs.map( lang =&gt; {
+    let li = document.createElement(&#39;li&#39;);
+    li.innerHTML = lang;
+    return li;
+});
+
+title.append(...items);
+
+title.append(&#39;texto&#39;)</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>prepend( ) function</strong><br />
+It works similar to <code>append()</code>, but the inserted element(s)
+goes before the <strong>first child</strong> of the parent Node to which
+such function is being applied.
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>R Markdown: Use R variables inside JavaScript</strong><br />
+Example:</li>
+</ul>
+<pre><code>```{r}
+x &lt;- 2
+word &lt;- &quot;hello, &quot;
+```
+&lt;script&gt;
+function suma(a,b){
+return a+b
+}
+console.log(suma(2,`r x+2`));
+console.log(&quot;`r word`&quot;+&quot;world!&quot;);
+&lt;/script&gt;</code></pre>
+Such <em>trick</em> only works inside a <strong>script</strong> tag,
+<strong>not inside js chunks</strong>.<br />
+<strong>Disclaimer:</strong> This only works <em>once</em> per knit; it
+does not make <strong>Shiny</strong> worthless.
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Create an element</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>let boton = document.createElement(&#39;button&#39;);
+boton.type=&quot;button&quot;;
+boton.textContent=&quot;Show / Hide&quot;;
+
+document.querySelector(&#39;div.some-class&#39;).prepend(boton);</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>NextElementSibling</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>&lt;div id=&quot;start&quot;&gt;&lt;/div&gt;
+Me
+&lt;p&gt;Hi&lt;/p&gt;
+
+console.log(document.getElementById(&#39;start&#39;).nextSibling); // &quot;\nMe\n&quot;
+console.log(document.getElementById(&#39;start&#39;).nextSibling.nextSibling); // &quot;&lt;p&gt;
+
+console.log(document.getElementById(&#39;start&#39;).nextElementSibling);// &quot;&lt;p&gt;&quot;</code></pre>
+More info <a
+href="https://stackoverflow.com/questions/31097016/whats-the-difference-between-nextelementsibling-vs-nextsibling">here</a>.
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Set an action when the DOM content has loaded</strong><br />
+</li>
+</ul>
+<pre class="js"><code>document.addEventListener(&#39;DOMContentLoaded&#39;, function (...) {
+    perform sth ...
+});</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>map function</strong><br />
+Create a new array, based on the elements of an array provided.<br>
+Example:</li>
+</ul>
+<pre class="js"><code>const array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.map(x =&gt; x * 2);
+
+console.log(map1);
+// expected output: Array [2, 8, 18, 32]</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Get keys of a dictionary</strong><br />
+</li>
+</ul>
+<pre class="js"><code>let dictionaryKeys = Object.keys(someDictionary);</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level3">
+<ul>
+<li><strong>Create a custom event</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>const myEvent = new Event(&quot;someEvent&quot;);
+
+document.addEventListener(
+    &quot;someEvent&quot;,
+    function() {
+        alert(&quot;Event: I am triggered!!!&quot;);
+    },
+    false
+);
+
+document.addEventListener(
+    &quot;DOMContentLoaded&quot;,
+    function() {
+        document.dispatchEvent(myEvent);
+    },
+    false
+);</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Filter function</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>let array = [1,2,3,4,5];
+array.filter(e =&gt; e%2 === 0);
+// output: [2,4]</code></pre>
+More info: <a
+href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"
+class="uri">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter</a>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>ParentNode vs ParentElement</strong><br />
+Pretty much always use <code>.parentNode</code> instead of
+<code>.parentElement</code> when trying to access the parent of some
+element.<br> <a
+href="https://stackoverflow.com/questions/8685739/difference-between-dom-parentnode-and-parentelement">Explanation</a>
+<p style="margin-bottom: -10px;">
+ 
+</p></li>
+</ul>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Insert HTML content in some element’s
+position</strong><br />
+</li>
+</ul>
+<pre class="js"><code>element.insertAdjacentHTML(position, text);
+
+// Position values:
+// &#39;beforebegin&#39;: Before the element itself.
+// &#39;afterbegin&#39;: Just inside the element, before its first child.
+// &#39;beforeend&#39;: Just inside the element, after its last child.
+// &#39;afterend&#39;: After the element itself.
+
+// Example:
+// &lt;div id=&quot;one&quot;&gt;one&lt;/div&gt;
+var d1 = document.getElementById(&#39;one&#39;);
+d1.insertAdjacentHTML(&#39;afterend&#39;, &#39;&lt;div id=&quot;two&quot;&gt;two&lt;/div&gt;&#39;);</code></pre>
+More <a
+href="https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML">info</a>.
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Sort array based on a custom property</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>function sortByDate( a, b ) {
+  if ( a.created_at &lt; b.created_at ){
+    return -1;
+  }
+  if ( a.created_at &gt; b.created_at ){
+    return 1;
+  }
+  return 0;
+}
+
+//myDates is not sorted.
+myDates.sort(sortByDate);</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Prevent keydown event to be activated multiple times when
+such key is held down</strong><br />
+</li>
+</ul>
+<pre class="js"><code>function keyDown (e) {
+  if (e.repeat) { return }
+
+  // do stuff here
+}</code></pre>
+More <a
+href="https://stackoverflow.com/questions/6087959/prevent-javascript-keydown-event-from-being-handled-multiple-times-while-held-do/38241109">info</a>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Only do once an action after some event</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>EventTarget.addEventListener(
+    &quot;click&quot;,
+    function() {   
+        // Do something cool
+    },
+    {once : true});</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Sum of elements of an array</strong><br />
+</li>
+</ul>
+<pre class="js"><code>some_array.reduce((a, b) =&gt; a + b, 0)</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Create an array of repeated values</strong><br />
+</li>
+</ul>
+<pre class="js"><code>Array(n).fill(value); // n instances of the element &quot;value&quot;</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level3">
+<ul>
+<li><strong>Concatenated event listeners</strong><br />
+It’s possible to use jQuery to define a set of functions to be
+activated, one after the other, following some specific order of events
+triggered for some DOM element.<br> For example:</li>
+</ul>
+<pre class="js"><code>$(&#39;canvas&#39;).on(&#39;mouseup&#39;,function() {
+  canvas.removeEventListener(&#39;mousemove&#39;, onMouseMoveX);
+  canvas.removeEventListener(&#39;mousemove&#39;, onMouseMoveY);
+  canvas.style.cursor = &quot;pointer&quot;;
+}).on(&#39;mousedown&#39;,function() {
+  canvas.addEventListener(&#39;mousemove&#39;, onMouseMoveX);
+  canvas.addEventListener(&#39;mousemove&#39;, onMouseMoveY);
+  canvas.style.cursor = &quot;grab&quot;;
+});</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Activate some custom function after X miliseconds, over and
+over</strong><br />
+</li>
+</ul>
+<pre class="js"><code>// Activate repetition
+let doThisAfterEverySecond = setInterval(customFunction, 1000);
+// Stop repetition
+clearInterval(doThisAfterEverySecond);</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Create same event listener for multiple
+events</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>[&#39;mousedown&#39;, &#39;touchstart&#39;].forEach( (event) =&gt; {
+  document.addEventListener(event, () =&gt; alert(&#39;triggered!!!&#39;))
+});</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>Compact way to use if and else</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>let boolean = true;
+let test = boolean ? 1 : 0;
+// test&#39;s value is 1
+// If boolean&#39;s value had been false,
+// then test&#39;s value would be 0.</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level1">
+<ul>
+<li><strong>setAttribute</strong><br />
+Examples:</li>
+</ul>
+<pre class="js"><code>// Simpler way to define CSS to a HTML element
+document.querySelector(&#39;html&#39;).setAttribute(&#39;style&#39;,&quot;scroll-behavior: smooth; overflow: hidden;&quot;);
+// Add info to &quot;datacontent&quot;
+someNode.setAttribute(&#39;data-newProperty&#39;, &quot;someValue&quot;);</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level3">
+<ul>
+<li><strong>Insert custom stylesheet</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>let css = &quot;#xaringan-toc li a { cursor: pointer; color: blue; transition: all 260ms linear; }&quot;
+let style = document.createElement(&#39;style&#39;);
+if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+} else {
+    style.appendChild(document.createTextNode(css));
+}
+document.querySelector(&#39;head&#39;).appendChild(style);</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level3">
+<ul>
+<li><strong>Dispatch keyboard event</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>// Simulate pressing the &#39;e&#39; key
+document.dispatchEvent(new KeyboardEvent(&#39;keydown&#39;, { &#39;key&#39;: &#39;e&#39; }));</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>Scroll to the position of some HTML element</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>let someNode = document.getElementById(&#39;someId&#39;);
+someNode.scrollIntoView();</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level2">
+<ul>
+<li><strong>More compact form of “if” and many uses of
+“else”</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>switch (expression) {
+  case &#39;100vh&#39;: 
+    // works as &quot;if (expression === &#39;100vh&#39;)&quot;
+    sth sth ...
+    break;
+  default:
+    // Do this when none of the cases match the value of expression
+    // (it&#39;s not necessary to include this &quot;default&quot; section)
+    sth sth ...
+    break;
+}</code></pre>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+<div class="level3">
+<ul>
+<li><strong>Activate a function whenever a certain html element changes
+size</strong><br />
+Example:</li>
+</ul>
+<pre class="js"><code>new ResizeObserver(functionToDoAfterSizeChange).observe(document.getElementById(NodeToCheckOnSizeChange));</code></pre>
+More general method for checking custom changes on Node:<br> <a
+href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
+class="uri">https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API</a>
+<p style="margin-bottom: -10px;">
+ 
+</p>
+</div>
+</div>

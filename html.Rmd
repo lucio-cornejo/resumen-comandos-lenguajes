@@ -1,0 +1,337 @@
+---
+output: html_fragment
+---
+
+### HTML
+
+<div class='level1'>
+- **Headings** \
+There is up to 6 level headings, being `<h6> last heading level </h6>` the smallest one.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Create lists** \
+    + Ordered list \
+    Example:
+    ```html
+    <ol>
+        <li>First item</li>
+        <li>Second list</li>
+    </ol>
+    ```
+    `ol` = Ordered list \
+    `li` = List item 
+
+    + Unordered list \
+    Example:
+    ```html
+    <ul>
+        <li>One item</li>
+        <li>Another item</li>
+    </ul>
+    ```
+    `ul` = Unordered list
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Include an image** \
+```html
+<img src = "image.jpg" alt="name-for-image" width="number-of-pixels">
+<!-- Example: -->
+<img src = "pi.jpg" alt="sad_tree" width="1000">
+<!-- Where the image pi.jpg is in the same folder as the HTML file. -->
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+```
+
+
+<div class='level1'>
+- **Add links** \
+```md
+Example of link to website:
+<a href="https://google.com">Click here</a> 
+Where "a" stands for "anchor".
+
+Example of link to html file in same folder as the one you'd be working with:
+<a href="some-file.html">Click me</a>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Create a table** \
+Example:
+```html
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>Ocean</th>
+            <th>Average Depth</th>
+            <th>Maximum depth</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Pacific Ocean</td>
+            <td>4200 m</td>
+            <td>10911 m</td>
+        </tr>
+        <tr>
+            <td>Atlantic Ocean</td>
+            <td>3646 m</td>
+            <td>8486 m</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+```
+Where the following stand for: \
+`thead`: Table headings \
+`tr`: Table row \
+`th`: Table heading \
+`tbody`: Body of the table \
+`td`: Table data 
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Division of the page** \
+It's not a division per se, but it works as a way to reference 
+a certain section of the web page \
+Example:
+```html
+<body>
+<div>
+    content
+</div>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Center a HTML table** \
+```css
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Define multiple classes for a HTML element** \
+Inside the `< ... class="..."...>`, you can only use `class` once, but multiple
+classes can assigned to some element via `< ... class="class-1 class-2" ...>`. \
+Be careful with that option because a selection via `[class="some-class"]` will
+only select the elements that have one class only, the *some-class* one. \
+Better use something like `[class*="some-class"]` instead.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Invalid characters inside a class name** \
+Some special characters can not be inside a class name, or they can but require special 
+rules to deal with it. \
+More information: <https://stackoverflow.com/questions/448981/which-characters-are-valid-in-css-class-names-selectors>
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Center HTML input tag** \
+<https://stackoverflow.com/questions/9264835/how-to-align-an-input-tag-to-the-center-without-specifying-the-width>
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Display text in only one line** \
+Add the CSS property `white-space: nowrap;` to what you wish
+no line break. To control whatever text that may not be displayed in
+the web page, use `overflow: ... ;`.\
+For example, to hide the non shoen text, use
+`overflow: hidden;` .
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Locate an element to top right corner of its parent container** 
+Example:
+```html
+<div style='position: relative;'>
+    <button style='position: absolute; right: 0;'>Click me</button>
+</div> 
+```
+Setting `left 0` instead of `right: 0` makes the button be positioned on 
+the top left corner of its parent `div`.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Create side to side tables** \
+Example:
+```html
+<div style='display: inline-flex'>
+<table>
+    <tr>
+    <td>1</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>1</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+    <td>1</td>
+    <td>1</td>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>1</td>
+    </tr>
+</table>
+</div>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level3'>
+- **Action** \
+Example:
+```html
+<head>
+    <title>Search</title>
+</head>
+<body>
+    <form action="https://google.com/search">
+        <input id="texto" type="text" name="q">
+        <input id="boton" type="submit" value="Google Search">
+    </form>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **pre tag** \
+Insert preformatted text, for example, to preserve white spaces
+left in the text content of `<pre>` tag.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='leve2'>
+- **Tabsets setup** \
+Example:
+```html
+<div class="tab">
+    <button class="tablinks" data-order = 0 >Tab 1</button>
+    <button class="tablinks" data-order = 1>Tab 2</button>
+</div>
+
+<div class="tabcontent">
+    content ...
+</div>
+
+<div class="tabcontent">
+    content ...
+</div>
+```
+
+```css
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-right: 1px solid black;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+```
+
+```js
+// Declare all variables
+let i, tabcontent, tablinks;
+tabcontent = document.getElementsByClassName("tabcontent");
+tablinks = document.getElementsByClassName("tablinks");
+
+for(i=0; i<tablinks.length; i++) {
+    tablinks[i].addEventListener('click',function() {
+    
+    // Hide all tablinks' contents
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Make all tablinks non active
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace("active", "");
+    }
+
+    // Display the clicked tablink and make it active
+    (tabcontent[this.dataset.order]).style.display = 'block';
+    (tablinks[this.dataset.order]).classList.add('active');
+    });
+}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Include video with controls** \
+Example:
+```html
+<video width="800" controls>
+    <source src="_grabaciones/taller-r-markdown_sesion-02.mp4" type="video/mp4">
+    Text to be displayed in case the user browser does not support embedded videos.
+</video>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>

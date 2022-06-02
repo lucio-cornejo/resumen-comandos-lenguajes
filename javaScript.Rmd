@@ -1,0 +1,582 @@
+---
+output: html_fragment
+---
+
+### JavaScript
+
+<div class='level2'>
+- **Automatic scrolling** \
+Example:
+```js
+// Choose some div (with overflow) to scroll
+let scrollable = document.querySelector('div');
+        
+// Define the standard sleep() function
+function sleep(miliseconds) {
+return new Promise(resolve => setTimeout(resolve, miliseconds));
+}
+
+let scrolling_time_in_miliseconds = 2000;
+let scrolling_transition_animation_precision = 100;
+
+async function initiateScrolling(){
+// Incrementally scroll little by little many times in order to simulate a continuous transition
+    for(var i=0; i<scrolling_transition_animation_precision; i++){
+        await sleep(scrolling_time_in_miliseconds/scrolling_transition_animation_precision);
+        scrollable.scrollBy(scrollable.scrollWidth/scrolling_transition_animation_precision,0);
+    }
+    
+    // Wait one second and reset the scroll back (smoothly, continuously) to its starting position
+    await sleep(1000);
+    scrollable.scrollBy({
+        left: -scrollable.scrollWidth,
+        behavior: 'smooth' 
+    });
+}
+
+// Perform the automatic scrolling
+initiateScrolling();
+```
+For more information, visit <https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollBy> .
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Trigger action on certain button(s) after clicking some button** \
+Example:
+```html
+<input type="button" value="whatever" class="activar" onclick="sth()"></input>
+<input type="button" value="activation" onclick="gooo()"></input>
+
+<script>   
+function gooo(){
+    $('.whatever').trigger('click');
+}
+function sth() {
+    // content ...
+}
+</script>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Get characters of a string** \
+Example:
+```js
+let palabra = "hola";
+alert(palabra.charAt(0)); // Displays the word "h".
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Remove characters from a string** \
+This method involves turning a string into array of its characters,
+removing some elements of such array and then join the characters left 
+into a new string. \
+Example:
+```js
+let t = document.querySelector('div');
+// t is a div which contains some text
+
+//  Convert string into array of characters
+let texto = t["textContent"].split(''); 
+
+// Remove the first two characters of the string
+texto.splice(0,1); texto.splice(0,1);
+
+// Remove the last two characters of the string
+texto.splice(texto.length - 1 ,1); texto.splice(texto.length - 1,1);
+
+// Set the initial text to its new value after joining the characters into a new string
+t["textContent"] = texto.join('');
+``` 
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Play a sound multiple times** \
+When you use a function like "click this and something will sound",
+as it's common with virtual pianos, there may be a problem where, after 
+click the _sound button_, you have to wait till the sound stops in order for the 
+next button click to activate the same sound. \
+The problem can be fixed using `currentTime = 0;` right before `play();`.
+Example:
+```html
+<audio id="nota" preload="auto"><source src="musical_notes/C4.mp3"></source></audio>
+<div id="sonido">
+<p>Click me to play a sound</p>
+</div>
+<script>
+    let audio;
+document.getElementById(sonido).addEventListener('click',function() {
+    audio = document.getElementById(nota);
+    audio.currentTime = 0;
+    audio.play();
+}
+</script>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Convert a HTML collection into an array** \
+Most efficient way: \
+```js
+let converted_array = Array.prototype.slice.call( some_html_collection );
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Set a time delay** \
+Example:
+```html
+<body>
+    <button onclick="doIt()">Do it</button>
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        async function doIt(){
+            for(var i=0;i<18;i++){
+                console.log(i.toString())
+                await sleep(100);
+            }
+        }
+    </script>
+</body>
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Get IP of webpage visitor** \
+Example using JQuery:
+```js
+// IPs of the visitors to this website for which
+// we grant permission to see the content of the site.
+const IP_exceptions = ['161.123.234.45','161.133.243.54']; 
+
+let pagina = document.querySelector('html');
+
+$.getJSON("https://jsonip.com/?callback=?", function (data) {
+if( !( IP_exceptions.includes(data['ip']) )) { 
+    // IP of user does not belong to someone granted permission to see site,
+    // so we delete the content of the website
+    pagina.remove();
+} else {
+    pagina.style.visibility = 'visible'; 
+    // this webpage had 'hidden' visibility when loaded
+}
+});
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Get first n elements of an array** \
+```js
+let slicedArray = old_array.slice(0,n)
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **append( ) function** \
+[Description](https://www.javascripttutorial.net/javascript-dom/javascript-append/): 
+_Use the parentNode.append() method to append a set of Node objects or DOMString objects after the last child node of the parentNode._ \
+Example:
+```js
+let title = document.querySelector('h2');
+let langs = ['html','css','javascript'];
+
+let items = langs.map( lang => {
+    let li = document.createElement('li');
+    li.innerHTML = lang;
+    return li;
+});
+
+title.append(...items);
+
+title.append('texto')
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **prepend( ) function** \
+It works similar to `append()`, but the inserted element(s) goes before the 
+**first child** of the parent Node to which such function is being applied.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **R Markdown: Use R variables inside JavaScript** \
+Example:
+```{r, echo = FALSE, comment=NA}
+cat(paste0('```{r}\n','x <- 2\n','word <- "hello, "\n','```\n','<script>\n',  'function suma(a,b){\n',    'return a+b\n',  '}\n',  'console.log(suma(2,`r x+2`));\n',  'console.log("`r word`"+"world!");\n','</script>'))
+```
+
+Such _trick_ only works inside a **script** tag, **not inside js chunks**. \
+**Disclaimer:** This only works _once_ per knit; it does not make **Shiny** worthless.
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Create an element** \
+Example:
+```js
+let boton = document.createElement('button');
+boton.type="button";
+boton.textContent="Show / Hide";
+
+document.querySelector('div.some-class').prepend(boton);
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **NextElementSibling** \
+Example:
+```js
+<div id="start"></div>
+Me
+<p>Hi</p>
+
+console.log(document.getElementById('start').nextSibling); // "\nMe\n"
+console.log(document.getElementById('start').nextSibling.nextSibling); // "<p>
+
+console.log(document.getElementById('start').nextElementSibling);// "<p>"
+```
+More info [here](https://stackoverflow.com/questions/31097016/whats-the-difference-between-nextelementsibling-vs-nextsibling).
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Set an action when the DOM content has loaded** \
+```js
+document.addEventListener('DOMContentLoaded', function (...) {
+    perform sth ...
+});
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **map function** \
+Create a new array, based on the elements of an array provided.<br>
+Example:
+```js
+const array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.map(x => x * 2);
+
+console.log(map1);
+// expected output: Array [2, 8, 18, 32]
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Get keys of a dictionary** \
+```js
+let dictionaryKeys = Object.keys(someDictionary);
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level3'>
+- **Create a custom event** \
+Example:
+```js
+const myEvent = new Event("someEvent");
+
+document.addEventListener(
+    "someEvent",
+    function() {
+        alert("Event: I am triggered!!!");
+    },
+    false
+);
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+        document.dispatchEvent(myEvent);
+    },
+    false
+);
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Filter function** \
+Example:
+```js
+let array = [1,2,3,4,5];
+array.filter(e => e%2 === 0);
+// output: [2,4]
+```
+More info:
+<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter> 
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **ParentNode vs ParentElement** \
+Pretty much always use `.parentNode` instead of `.parentElement` 
+when trying to access the parent of some element.<br>
+[Explanation](https://stackoverflow.com/questions/8685739/difference-between-dom-parentnode-and-parentelement)
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Insert HTML content in some element's position** \
+```js
+element.insertAdjacentHTML(position, text);
+
+// Position values:
+// 'beforebegin': Before the element itself.
+// 'afterbegin': Just inside the element, before its first child.
+// 'beforeend': Just inside the element, after its last child.
+// 'afterend': After the element itself.
+
+// Example:
+// <div id="one">one</div>
+var d1 = document.getElementById('one');
+d1.insertAdjacentHTML('afterend', '<div id="two">two</div>');
+```
+More [info](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML).
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level2'>
+- **Sort array based on a custom property** \
+Example:
+```js
+function sortByDate( a, b ) {
+  if ( a.created_at < b.created_at ){
+    return -1;
+  }
+  if ( a.created_at > b.created_at ){
+    return 1;
+  }
+  return 0;
+}
+
+//myDates is not sorted.
+myDates.sort(sortByDate);
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Prevent keydown event to be activated multiple times when such key is held down** \
+```js
+function keyDown (e) {
+  if (e.repeat) { return }
+
+  // do stuff here
+}
+```
+More [info](https://stackoverflow.com/questions/6087959/prevent-javascript-keydown-event-from-being-handled-multiple-times-while-held-do/38241109)
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Only do once an action after some event** \
+Example:
+```js
+EventTarget.addEventListener(
+    "click",
+    function() {   
+        // Do something cool
+    },
+    {once : true});
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Sum of elements of an array** \
+```js
+some_array.reduce((a, b) => a + b, 0)
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Create an array of repeated values** \
+```js
+Array(n).fill(value); // n instances of the element "value"
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level3'>
+- **Concatenated event listeners** \
+It's possible to use jQuery to define a set of functions to be activated, one after the other,
+following some specific order of events triggered for some DOM element.<br>
+For example:
+```js
+$('canvas').on('mouseup',function() {
+  canvas.removeEventListener('mousemove', onMouseMoveX);
+  canvas.removeEventListener('mousemove', onMouseMoveY);
+  canvas.style.cursor = "pointer";
+}).on('mousedown',function() {
+  canvas.addEventListener('mousemove', onMouseMoveX);
+  canvas.addEventListener('mousemove', onMouseMoveY);
+  canvas.style.cursor = "grab";
+});
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **Activate some custom function after X miliseconds, over and over** \
+```js
+// Activate repetition
+let doThisAfterEverySecond = setInterval(customFunction, 1000);
+// Stop repetition
+clearInterval(doThisAfterEverySecond);
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Create same event listener for multiple events** \
+Example:
+```js
+['mousedown', 'touchstart'].forEach( (event) => {
+  document.addEventListener(event, () => alert('triggered!!!'))
+});
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+<div class='level1'>
+- **Compact way to use if and else** \
+Example:
+```js
+let boolean = true;
+let test = boolean ? 1 : 0;
+// test's value is 1
+// If boolean's value had been false,
+// then test's value would be 0.
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level1'>
+- **setAttribute** \
+Examples:
+```js
+// Simpler way to define CSS to a HTML element
+document.querySelector('html').setAttribute('style',"scroll-behavior: smooth; overflow: hidden;");
+// Add info to "datacontent"
+someNode.setAttribute('data-newProperty', "someValue");
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level3'>
+- **Insert custom stylesheet** \
+Example:
+```js
+let css = "#xaringan-toc li a { cursor: pointer; color: blue; transition: all 260ms linear; }"
+let style = document.createElement('style');
+if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+} else {
+    style.appendChild(document.createTextNode(css));
+}
+document.querySelector('head').appendChild(style);
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level3'>
+- **Dispatch keyboard event** \
+Example:
+```js
+// Simulate pressing the 'e' key
+document.dispatchEvent(new KeyboardEvent('keydown', { 'key': 'e' }));
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **Scroll to the position of some HTML element** \
+Example:
+```js
+let someNode = document.getElementById('someId');
+someNode.scrollIntoView();
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level2'>
+- **More compact form of "if" and many uses of "else"** \
+Example:
+```js
+switch (expression) {
+  case '100vh': 
+    // works as "if (expression === '100vh')"
+    sth sth ...
+    break;
+  default:
+    // Do this when none of the cases match the value of expression
+    // (it's not necessary to include this "default" section)
+    sth sth ...
+    break;
+}
+```
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
+
+
+<div class='level3'>
+- **Activate a function whenever a certain html element changes size** \
+Example:
+```js
+new ResizeObserver(functionToDoAfterSizeChange).observe(document.getElementById(NodeToCheckOnSizeChange));
+```
+More general method for checking custom changes on Node:<br>
+<https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API>
+<p style="margin-bottom: -10px;">&nbsp;</p>
+</div>
